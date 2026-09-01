@@ -1,0 +1,412 @@
+{
+  "meta": {
+    "source": "FERES_Tochki_prodazh_ADMIN_PANEL.xlsx",
+    "note": "GPS в исходном файле не заполнен — координаты подставлены по центру города (geo_precision=city). Перед публикацией уточнить точные координаты каждой точки.",
+    "types": [
+      {
+        "code": "opt",
+        "label": "Оптовик"
+      },
+      {
+        "code": "roz",
+        "label": "Розница"
+      },
+      {
+        "code": "sto",
+        "label": "СТО / Шиномонтаж"
+      },
+      {
+        "code": "srv",
+        "label": "Сервисный центр"
+      },
+      {
+        "code": "int",
+        "label": "Интернет-площадка"
+      }
+    ]
+  },
+  "locations": [
+    {
+      "id": 1,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Армавир",
+      "region_code": "КК",
+      "region": "Краснодарский край",
+      "address": "ул. Лавриненко, 2",
+      "phones": [
+        "8-918-941-72-99"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 44.9892,
+      "lon": 41.1234,
+      "geo_precision": "city"
+    },
+    {
+      "id": 2,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Батайск",
+      "region_code": "РО",
+      "region": "Ростовская область",
+      "address": "ул. Фермерская, 14",
+      "phones": [
+        "8-918-850-08-37",
+        "8-918-850-12-00"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 47.1381,
+      "lon": 39.7519,
+      "geo_precision": "city"
+    },
+    {
+      "id": 3,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Новосадовый",
+      "region_code": "БГ",
+      "region": "Белгородская область",
+      "address": "ул. Ягодная, 22Р",
+      "phones": [
+        "7-961-463-75-80"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 50.68,
+      "lon": 36.68,
+      "geo_precision": "city"
+    },
+    {
+      "id": 4,
+      "name": "Маркет запчастей",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Буденновск",
+      "region_code": "СК",
+      "region": "Ставропольский край",
+      "address": "Тампонажный проезд, 8",
+      "phones": [
+        "+7 (8652) 315-680"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 44.7817,
+      "lon": 44.166,
+      "geo_precision": "city"
+    },
+    {
+      "id": 5,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Владикавказ",
+      "region_code": "РСО",
+      "region": "Северная Осетия — Алания",
+      "address": "Архонское шоссе, 5",
+      "phones": [
+        "8-8672-70-00-30"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 43.0367,
+      "lon": 44.6678,
+      "geo_precision": "city"
+    },
+    {
+      "id": 6,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Воронеж",
+      "region_code": "ВО",
+      "region": "Воронежская область",
+      "address": "ул. Дорожная, 36д",
+      "phones": [
+        "7-909-772-18-11"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 51.672,
+      "lon": 39.1843,
+      "geo_precision": "city"
+    },
+    {
+      "id": 7,
+      "name": "Маркет запчастей",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Георгиевск",
+      "region_code": "СК",
+      "region": "Ставропольский край",
+      "address": "ул. Октябрьская, 118",
+      "phones": [
+        "+7 (87951) 74-440"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 44.1526,
+      "lon": 43.4699,
+      "geo_precision": "city"
+    },
+    {
+      "id": 8,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Ейск",
+      "region_code": "КК",
+      "region": "Краснодарский край",
+      "address": "улица Щорса, 150/93",
+      "phones": [
+        "+7 (8652) 57-12-25"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 46.7111,
+      "lon": 38.277,
+      "geo_precision": "city"
+    },
+    {
+      "id": 9,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Краснодар",
+      "region_code": "КК",
+      "region": "Краснодарский край",
+      "address": "ул. Ростовское шоссе, 41",
+      "phones": [
+        "79882475547"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 45.0355,
+      "lon": 38.9753,
+      "geo_precision": "city"
+    },
+    {
+      "id": 10,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Краснодар",
+      "region_code": "КК",
+      "region": "Краснодарский край",
+      "address": "ул. Бородинская 156/9, литер Б",
+      "phones": [
+        "8-988-242-19-63"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 45.0355,
+      "lon": 38.9753,
+      "geo_precision": "city"
+    },
+    {
+      "id": 11,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Клин",
+      "region_code": "МО",
+      "region": "Московская область",
+      "address": "ул. Староямская, 70",
+      "phones": [
+        "8-496-242-22-29",
+        "8-965-350-89-33"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 56.3333,
+      "lon": 36.7333,
+      "geo_precision": "city"
+    },
+    {
+      "id": 12,
+      "name": "Центр запасных частей",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Тольятти",
+      "region_code": "СО",
+      "region": "Самарская область",
+      "address": "ул. Коммунистическая, 130",
+      "phones": [
+        "89097611966"
+      ],
+      "hours": "09:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 53.5078,
+      "lon": 49.4204,
+      "geo_precision": "city"
+    },
+    {
+      "id": 13,
+      "name": "Binom avto",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Ижевск",
+      "region_code": "УД",
+      "region": "Удмуртия",
+      "address": "Холмогорова ул., 11а",
+      "phones": [
+        "73412912033"
+      ],
+      "hours": "8:00-22:00",
+      "email": "info@binomavto.ru",
+      "status": "active",
+      "lat": 56.8526,
+      "lon": 53.2045,
+      "geo_precision": "city"
+    },
+    {
+      "id": 14,
+      "name": "Binom avto",
+      "type": "sto",
+      "type_label": "СТО",
+      "city": "Пермь",
+      "region_code": "ПК",
+      "region": "Пермский край",
+      "address": "Парковый пр-д., 1к1",
+      "phones": [
+        "73422055520"
+      ],
+      "hours": "8:00-21:00",
+      "email": "perm@binomavto.ru",
+      "status": "active",
+      "lat": 58.0105,
+      "lon": 56.2502,
+      "geo_precision": "city"
+    },
+    {
+      "id": 15,
+      "name": "Binom avto",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Уфа",
+      "region_code": "БА",
+      "region": "Башкортостан",
+      "address": "пр. Мебельщиков, 8",
+      "phones": [
+        "73472251225"
+      ],
+      "hours": "8:00-21:00",
+      "email": "ufa@binomavto.ru",
+      "status": "active",
+      "lat": 54.7388,
+      "lon": 55.9721,
+      "geo_precision": "city"
+    },
+    {
+      "id": 16,
+      "name": "9 Января",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Санкт-Петербург",
+      "region_code": "СП",
+      "region": "Санкт-Петербург",
+      "address": "пр-т Девятого Января, 19",
+      "phones": [
+        "8 (812) 495-68-93"
+      ],
+      "hours": "Пн-Пт: 9:00-20:00, Сб-Вс: 9:00-19:00",
+      "email": "",
+      "status": "active",
+      "lat": 59.9311,
+      "lon": 30.3609,
+      "geo_precision": "city"
+    },
+    {
+      "id": 17,
+      "name": "В. Новгород",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Великий Новгород",
+      "region_code": "ВНГ",
+      "region": "Новгородская область",
+      "address": "ул. Радищева, 6",
+      "phones": [
+        "8 (816) 263-78-79"
+      ],
+      "hours": "Пн-Пт: 8:00-20:00, Сб-Вс: 9:00-18:00",
+      "email": "",
+      "status": "active",
+      "lat": 58.5215,
+      "lon": 31.2755,
+      "geo_precision": "city"
+    },
+    {
+      "id": 18,
+      "name": "Жукова",
+      "type": "sto",
+      "type_label": "СТО",
+      "city": "Санкт-Петербург",
+      "region_code": "СП",
+      "region": "Санкт-Петербург",
+      "address": "пр-т Маршала Жукова, 76 корп. 2",
+      "phones": [
+        "8 (812) 334-55-27"
+      ],
+      "hours": "Пн-Пт: 9:00-20:00, Сб-Вс: 9:00-19:00",
+      "email": "",
+      "status": "active",
+      "lat": 59.9311,
+      "lon": 30.3609,
+      "geo_precision": "city"
+    },
+    {
+      "id": 19,
+      "name": "Гарант",
+      "type": "opt",
+      "type_label": "Оптовик",
+      "city": "Красноярск",
+      "region_code": "КК",
+      "region": "Краснодарский край",
+      "address": "Мичурина ул, 59",
+      "phones": [
+        "8(391)260-74-12"
+      ],
+      "hours": "9:00-20:00",
+      "email": "",
+      "status": "active",
+      "lat": 56.0153,
+      "lon": 92.8932,
+      "geo_precision": "city"
+    },
+    {
+      "id": 20,
+      "name": "Жигули",
+      "type": "roz",
+      "type_label": "Розница",
+      "city": "Абакан",
+      "region_code": "ХА",
+      "region": "Хакасия",
+      "address": "Крылова, 96а",
+      "phones": [
+        "+7 (3902) 28-28-61"
+      ],
+      "hours": "9:00-17:00",
+      "email": "",
+      "status": "active",
+      "lat": 53.7156,
+      "lon": 91.4292,
+      "geo_precision": "city"
+    }
+  ]
+}

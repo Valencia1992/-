@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>FERES — дизайн-система сайта</title>
+<link rel="icon" href="assets/img/brand/favicon.ico" sizes="any">
+<link rel="stylesheet" href="assets/css/feres.css">
+<style>
+  .kit-nav{position:sticky;top:0;z-index:70;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--edge)}
+  .kit-nav__in{display:flex;align-items:center;gap:20px;height:64px;flex-wrap:wrap}
+  .kit-nav a{font-size:var(--fs-micro);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+  .kit-nav a:hover{color:var(--sand)}
+  .swatch{border:1px solid var(--edge);border-radius:var(--r);overflow:hidden}
+  .swatch__box{height:104px}
+  .swatch__meta{padding:12px 14px;display:flex;flex-direction:column;gap:3px;background:var(--ink-2)}
+  .spec{display:flex;flex-direction:column;gap:4px;padding:18px 0;border-bottom:1px solid var(--edge)}
+  .spec__note{font-size:var(--fs-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+  .demo{border:1px solid var(--edge);border-radius:var(--r);padding:26px;background:var(--ink-2)}
+  .demo + .demo{margin-top:14px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:var(--sand);
+    background:rgba(221,203,164,.07);padding:2px 6px;border-radius:2px}
+  .kit-grid-note{display:grid;gap:10px;grid-template-columns:repeat(12,1fr)}
+  .kit-grid-note span{height:56px;background:rgba(221,203,164,.08);border:1px solid rgba(221,203,164,.16)}
+</style>
+</head>
+<body>
+
+<nav class="kit-nav">
+  <div class="wrap kit-nav__in">
+    <img src="assets/img/brand/logo-feresru-sand.png" alt="FERES" width="900" height="188" style="height:20px;width:auto">
+    <a href="#color">Цвет</a>
+    <a href="#type">Типографика</a>
+    <a href="#lac">Эффект «лак»</a>
+    <a href="#buttons">Кнопки</a>
+    <a href="#forms">Поля и поиск</a>
+    <a href="#cards">Карточки</a>
+    <a href="#motion">Движение</a>
+    <a href="index.html" class="txt-sand">← На главную</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="eyebrow">Дизайн-система</p>
+    <h1 class="h1 mt-16">Витрина компонентов</h1>
+    <p class="lead mt-16" style="max-width:70ch">Один источник правды для вёрстки сайта feres.ru. Все элементы построены на переменных из <code>assets/css/feres.css</code>: смена палитры или шрифта не требует правки шаблонов. Страница техническая — из индекса закрыта.</p>
+  </div>
+</section>
+
+<!-- ЦВЕТ -->
+<section class="section section--ink1 section--line" id="color">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">01 · Цвет</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">Палитра</h2></div>
+      <p class="body">Три фирменных цвета из брендбука плюс производные графитовые фоны — они дают глубину тёмной теме и не нарушают фирменный стиль.</p>
+    </div>
+
+    <div class="grid cols-4">
+      <div class="swatch"><div class="swatch__box" style="background:#000"></div>
+        <div class="swatch__meta"><span class="h4">Чёрный</span><span class="micro">#000000 · PANTONE Black · фон, текст на песочном</span><span class="micro"><code>--black</code></span></div></div>
+      <div class="swatch"><div class="swatch__box" style="background:#DDCBA4"></div>
+        <div class="swatch__meta"><span class="h4">Песочный</span><span class="micro">#DDCBA4 · PANTONE 468 C · акцент, первичный CTA</span><span class="micro"><code>--sand</code></span></div></div>
+      <div class="swatch"><div class="swatch__box" style="background:#97999B"></div>
+        <div class="swatch__meta"><span class="h4">Серый</span><span class="micro">#97999B · Cool Gray 7 C · вторичный текст</span><span class="micro"><code>--gray</code></span></div></div>
+      <div class="swatch"><div class="swatch__box" style="background:linear-gradient(90deg,#0A0A0B,#101012,#17171A,#1F1F23)"></div>
+        <div class="swatch__meta"><span class="h4">Графит</span><span class="micro">#0A0A0B → #1F1F23 · слои панелей и карточек</span><span class="micro"><code>--ink-1 … --ink-4</code></span></div></div>
+    </div>
+
+    <div class="grid cols-3 mt-24">
+      <div class="demo">
+        <p class="spec__note">Контраст</p>
+        <p class="small mt-8">Основной текст <span class="txt-sand">#F2EFE9</span> на чёрном — 18:1. Вторичный <span style="color:#97999B">#97999B</span> — 6.5:1. Песочный на чёрном — 11:1. Все сочетания проходят WCAG AA.</p>
+      </div>
+      <div class="demo">
+        <p class="spec__note">Правило акцента</p>
+        <p class="small mt-8">Песочный — только для действия и смысловых акцентов: первичная кнопка, активное состояние, цифры-факты, подписи разделов. Не используем его как декоративную заливку больших плоскостей.</p>
+      </div>
+      <div class="demo">
+        <p class="spec__note">Границы</p>
+        <p class="small mt-8">Обычная грань <code>--edge</code> #242428. При наведении — песочная <code>--edge-sand</code> 34 % прозрачности. Это единственный способ подсветить карточку: цветных заливок нет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТИПОГРАФИКА -->
+<section class="section" id="type">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">02 · Типографика</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">PF Din Text Cond Pro</h2></div>
+      <p class="body">Лицензионный шрифт бренда, подключён подмножеством latin + cyrillic в формате woff2 (по 15–17 КБ на начертание). Замена семейства — одна переменная <code>--font-brand</code>.</p>
+    </div>
+
+    <div class="spec"><span class="h1">Уверенность после ремонта</span>
+      <span class="spec__note">H1 · Bold 700 · clamp(38 → 84px) · интерлиньяж 0.94 · uppercase · <code>.h1</code></span></div>
+    <div class="spec"><span class="h2">Шесть групп продукции</span>
+      <span class="spec__note">H2 · Bold 700 · clamp(27 → 46px) · <code>.h2</code></span></div>
+    <div class="spec"><span class="h3">Проверенная применяемость</span>
+      <span class="spec__note">H3 · Bold 700 · clamp(20 → 26px) · <code>.h3</code></span></div>
+    <div class="spec"><span class="h4">Мы остаёмся рядом после покупки</span>
+      <span class="spec__note">H4 · Bold 700 · 18px · заголовок карточки · <code>.h4</code></span></div>
+    <div class="spec"><span class="lead">Клиент покупает не деталь, а исправный автомобиль — спокойствие и отсутствие повторного ремонта.</span>
+      <span class="spec__note">Лид · Light 300 · clamp(17 → 20px) · <code>.lead</code></span></div>
+    <div class="spec"><span class="body">Основной текст: 17px, интерлиньяж 1.6, цвет #C9C7C2. Длина строки — не более 64 символов, иначе читаемость падает.</span>
+      <span class="spec__note">Текст · Regular 400 · 17px · <code>.body</code></span></div>
+    <div class="spec"><span class="art">2112-1007300-02 · FR2110-3501080</span>
+      <span class="spec__note">Артикул · Medium 500 · 13px · трекинг 0.14em · табличные цифры · <code>.art</code></span></div>
+    <div class="spec"><span class="eyebrow">Подпись раздела</span>
+      <span class="spec__note">Надзаголовок · Medium 500 · 12px · трекинг 0.22em · песочный · <code>.eyebrow</code></span></div>
+  </div>
+</section>
+
+<!-- ЛАК -->
+<section class="section section--ink1 section--line" id="lac">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">03 · Фирменный эффект</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">«Лак»: блик на поверхности</h2></div>
+      <p class="body">Ключевой визуальный приём: свет ведёт себя как на лакированном кузове. Реализация — только CSS-градиенты и трансформации, без картинок и тяжёлых скриптов. Наведите курсор на карточки ниже.</p>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="card lac tile">
+        <h3 class="h4">Блик за курсором</h3>
+        <p class="small">Радиальный песочный блик следует за указателем: координаты пишутся в <code>--mx</code> / <code>--my</code> одним обработчиком на документ, через requestAnimationFrame.</p>
+        <p class="micro mt-8">Класс <code>.lac</code></p>
+      </div>
+      <div class="card lac tile sheen">
+        <h3 class="h4">Пробег света</h3>
+        <p class="small">Узкая полоса света проходит по поверхности при наведении — как отражение фонаря на крыле. Длительность 0.78 с, один раз на событие.</p>
+        <p class="micro mt-8">Класс <code>.sheen</code></p>
+      </div>
+      <div class="card lac tile">
+        <h3 class="h4">Шкала точности</h3>
+        <div class="scale mt-8" aria-hidden="true"></div>
+        <p class="small mt-8">Разделитель секций построен как шкала измерительного инструмента: деление 8 px, крупное — каждые 40 px. Отсылка к допускам, а не декор.</p>
+        <p class="micro mt-8">Класс <code>.scale</code></p>
+      </div>
+    </div>
+
+    <div class="demo mt-24">
+      <p class="spec__note">Где эффект не применяется</p>
+      <p class="small mt-8">В зоне конверсии не должно быть движения, отвлекающего от действия: никаких автокаруселей, бесконечных анимаций рядом с формами и CTA. При включённом <code>prefers-reduced-motion</code> все эффекты выключаются, содержимое видно сразу.</p>
+    </div>
+  </div>
+</section>
+
+<!-- КНОПКИ -->
+<section class="section" id="buttons">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">04 · Действия</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">Кнопки и ссылки</h2></div>
+      <p class="body">На странице одна первичная кнопка. Первичная всегда ведёт к конверсии — «Стать партнёром» или «Где купить».</p>
+    </div>
+
+    <div class="demo">
+      <div class="row">
+        <button class="btn btn--primary sheen">Стать партнёром</button>
+        <button class="btn btn--ghost">Где купить</button>
+        <button class="btn btn--quiet">Скачать прайс</button>
+        <button class="btn btn--primary btn--lg sheen">Крупная · lg</button>
+        <button class="btn btn--ghost btn--sm">Мелкая · sm</button>
+        <a class="link-arrow" href="#buttons">Текстовая ссылка
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="micro mt-16">Классы: <code>.btn--primary</code>, <code>.btn--ghost</code>, <code>.btn--quiet</code>; размеры <code>.btn--sm</code>, <code>.btn--lg</code>, ширина <code>.btn--block</code>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ФОРМЫ -->
+<section class="section section--ink1 section--line" id="forms">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">05 · Ввод данных</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">Поля, поиск и согласия</h2></div>
+      <p class="body">Строка поиска понимает артикул FERES, OEM-номер и название — тип запроса определяется на лету. Формы соответствуют 152-ФЗ: без согласия кнопка отправки неактивна.</p>
+    </div>
+
+    <div class="demo">
+      <form class="search" data-search role="search" onsubmit="return false">
+        <svg class="search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="vh" for="kq">Поиск</label>
+        <input class="search__input" id="kq" type="search" autocomplete="off" placeholder="Введите 2112 или «колодки» — появится подсказка">
+        <span class="search__type" aria-live="polite"></span>
+        <button class="btn btn--primary search__go" type="submit">Найти</button>
+        <div class="suggest"></div>
+      </form>
+      <p class="micro mt-16">Демонстрация работает на <code>data/products.json</code>. На проде подсказки отдаёт Битрикс по данным каталога из 1С.</p>
+    </div>
+
+    <div class="grid cols-2 mt-24">
+      <div class="demo">
+        <label class="label" for="k1">Компания</label>
+        <input class="field" id="k1" placeholder="ООО «Автодеталь»">
+        <label class="label mt-16" for="k2">Город</label>
+        <input class="field" id="k2" placeholder="Тольятти">
+        <label class="label mt-16" for="k3">Комментарий</label>
+        <textarea class="field" id="k3" rows="3" placeholder="Какой ассортимент интересует"></textarea>
+      </div>
+      <div class="demo">
+        <p class="spec__note">Согласия по 152-ФЗ</p>
+        <form data-consent-form>
+          <label class="consent mt-16">
+            <input type="checkbox" data-consent>
+            <span>Даю согласие на обработку персональных данных в соответствии с <a href="privacy-policy.html">политикой конфиденциальности</a> и <a href="personal-data-consent.html">согласием на обработку ПДн</a>.</span>
+          </label>
+          <label class="consent mt-16">
+            <input type="checkbox">
+            <span>Согласен получать новости и информацию об акциях (отдельное согласие по 38-ФЗ «О рекламе», необязательное).</span>
+          </label>
+          <button class="btn btn--primary mt-24" type="submit">Отправить заявку</button>
+          <p class="micro mt-16" data-form-ok hidden>Заявка отправлена. Факт согласия записан: дата, время, форма, версия документа.</p>
+          <p class="micro mt-16">Первый чекбокс не отмечен по умолчанию и блокирует отправку. Факт согласия логируется на сервере — это доказательная база при проверке РКН.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- КАРТОЧКИ -->
+<section class="section" id="cards">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">06 · Контейнеры</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">Карточки</h2></div>
+      <p class="body">Публичная карточка товара не показывает цену — ни РРЦ, ни дилерскую. Вместо цены — путь к покупке и к партнёрству.</p>
+    </div>
+
+    <div class="grid cols-4">
+      <article class="card lac product">
+        <div class="product__media">
+          <span class="product__badge">Новинка</span>
+          <img src="assets/img/products/hydro-lifters.webp" alt="Гидрокомпенсаторы FERES" loading="lazy" width="950" height="685">
+        </div>
+        <div class="product__body">
+          <h3 class="product__name">Гидрокомпенсаторы, комплект</h3>
+          <p class="art">2112-1007300-02</p>
+          <p class="product__meta"><span class="micro">Двигатель и ЦПГ</span><span class="micro">ВАЗ 2112 16V</span></p>
+        </div>
+        <div class="product__foot">
+          <a class="link-arrow" href="where-to-buy.html">Где купить</a>
+          <a class="micro" href="#cards">Подробнее</a>
+        </div>
+      </article>
+
+      <a class="card lac cat" href="#cards">
+        <img class="cat__img" src="assets/img/products/brake-disc.webp" alt="" loading="lazy" width="994" height="598">
+        <h3 class="cat__name">Тормозная система</h3>
+        <p class="cat__count">Диски · колодки · цилиндры</p>
+      </a>
+
+      <div class="card lac stat">
+        <span class="stat__val">833</span>
+        <span class="stat__label">позиции в каталоге — цифра-факт со счётчиком при появлении</span>
+      </div>
+
+      <article class="card lac post">
+        <div class="post__media"><img class="post__img" src="assets/img/atmo/crop-rings.jpg" alt="" loading="lazy" width="480" height="320"></div>
+        <div class="post__body">
+          <p class="post__cat">Причины поломок</p>
+          <h3 class="h4">Заголовок материала базы знаний</h3>
+          <p class="small">Анонс на две-три строки: что именно узнает читатель.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ДВИЖЕНИЕ И СЕТКА -->
+<section class="section section--ink1 section--line" id="motion">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">07 · Сетка и движение</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top"><h2 class="h2">Ритм страницы</h2></div>
+    </div>
+
+    <div class="kit-grid-note" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="micro mt-16">12 колонок, максимум 1440 px, поля <code>clamp(18px, 4vw, 48px)</code>, шаг сетки <code>clamp(12px, 1.4vw, 20px)</code>. Вертикальный ритм секции — <code>clamp(56px, 7vw, 116px)</code>.</p>
+
+    <div class="grid cols-3 mt-24">
+      <div class="demo"><p class="spec__note">Появление</p><p class="small mt-8">Секции проявляются при скролле: 20 px вверх + прозрачность, 550 мс, задержка внутри группы 70 мс на элемент. Класс <code>.reveal</code>, группа <code>data-stagger</code>.</p></div>
+      <div class="demo"><p class="spec__note">Микровзаимодействия</p><p class="small mt-8">Карточка приподнимается на 3 px, грань становится песочной, изображение увеличивается на 4.5 %. Все переходы — 180–320 мс.</p></div>
+      <div class="demo"><p class="spec__note">Доступность</p><p class="small mt-8">Видимый фокус на всех интерактивных элементах, скип-ссылка, aria-подписи у иконочных кнопок, <code>prefers-reduced-motion</code> отключает анимации.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="micro">FERES · дизайн-система прототипа. Файлы: <code>assets/css/feres.css</code>, <code>assets/js/feres.js</code>, шрифты <code>assets/fonts/*.woff2</code>.</p>
+  </div>
+</footer>
+
+<script src="assets/js/feres.js" defer></script>
+</body>
+</html>

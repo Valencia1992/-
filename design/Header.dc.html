@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap');
+*{box-sizing:border-box;}
+body{margin:0;background:#000;font-family:'IBM Plex Sans Condensed',Arial,sans-serif;}
+a{color:#DDCBA4;text-decoration:none;}
+a:hover{color:#EDE7DA;}
+.fr-nav-link{font-family:'IBM Plex Sans Condensed',Arial,sans-serif;font-size:14px;font-weight:500;letter-spacing:0.02em;padding:6px 0;white-space:nowrap;}
+.fr-cab-btn{border:1px solid #97999B;color:#EDE7DA;font-family:'IBM Plex Sans Condensed',Arial,sans-serif;font-size:13px;font-weight:500;padding:9px 16px;border-radius:2px;display:flex;align-items:center;gap:8px;}
+.fr-cab-btn:hover{border-color:#DDCBA4;color:#DDCBA4;}
+</style>
+</helmet>
+<div style="position:sticky;top:0;z-index:50;width:100%;background:#000;border-bottom:1px solid #262320;">
+  <div style="max-width:1440px;margin:0 auto;height:84px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;gap:24px;">
+    <a href="#" style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+      <img src="mark-sand.png" alt="FERES" style="height:34px;width:auto;display:block;">
+      <img src="logo-sand.png" alt="FERES" style="height:20px;width:auto;display:block;">
+    </a>
+    <nav style="display:flex;align-items:center;gap:28px;flex:1;justify-content:center;">
+      <sc-for list="{{items}}" as="item" hint-placeholder-count="7">
+        <a href="{{item.href}}" class="fr-nav-link" style="{{item.style}}">{{item.label}}</a>
+      </sc-for>
+    </nav>
+    <div style="display:flex;align-items:center;gap:20px;flex-shrink:0;">
+      <a href="tel:+78482639090" style="display:flex;align-items:center;gap:8px;font-family:'Oswald',Arial,sans-serif;font-size:15px;font-weight:500;color:#EDE7DA;letter-spacing:0.02em;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +7 (8482) 63-90-90
+      </a>
+      <a href="#" class="fr-cab-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Личный кабинет
+      </a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"activePage":{"editor":"enum","default":"","options":["","catalog","search","where","partners","company","knowledge","contacts"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.activePage ?? '';
+    const NAV = [
+      {key:'catalog', label:'Каталог', href:'#'},
+      {key:'search', label:'Подбор', href:'#'},
+      {key:'where', label:'Где купить', href:'#'},
+      {key:'partners', label:'Партнёрам', href:'#'},
+      {key:'company', label:'Компания', href:'#'},
+      {key:'knowledge', label:'База знаний', href:'#'},
+      {key:'contacts', label:'Контакты', href:'#'}
+    ];
+    const items = NAV.map(n => ({
+      ...n,
+      style: n.key === active
+        ? 'color:#DDCBA4;border-bottom:2px solid #DDCBA4;'
+        : 'color:#EDE7DA;border-bottom:2px solid transparent;'
+    }));
+    return { items };
+  }
+}
+</script>
+</body>
+</html>

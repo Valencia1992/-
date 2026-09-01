@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap');
+*{box-sizing:border-box;}
+body{margin:0;background:#000;color:#EDE7DA;font-family:'IBM Plex Sans Condensed',Arial,sans-serif;}
+h1,h2,h3{font-family:'Oswald',Arial,sans-serif;margin:0;color:#F2ECDD;letter-spacing:0.01em;}
+p{margin:0;}
+a{color:#DDCBA4;text-decoration:none;}
+a:hover{color:#EDE7DA;}
+.fr-eyebrow{font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#DDCBA4;}
+.fr-btn-primary{background:linear-gradient(135deg,#EEDFC0,#DDCBA4 60%,#C9B489);color:#0A0906;border:none;padding:15px 26px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-secondary{background:transparent;color:#EDE7DA;border:1px solid #55524B;padding:14px 25px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-secondary:hover{border-color:#DDCBA4;color:#DDCBA4;}
+.fr-card{background:#121110;border:1px solid #262320;border-radius:2px;}
+.fr-card:hover{border-color:#4A4438;}
+.fr-section-title{font-size:22px;font-weight:600;margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+.fr-section-title::after{content:'';flex:1;height:1px;background:#201D19;}
+.fr-tab{font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.03em;padding:12px 20px;border-radius:2px;border:1px solid #262320;color:#9A9C9E;}
+.fr-tab-active{background:#161310;border-color:#4A4438;color:#DDCBA4;}
+.fr-shop{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;font-size:14px;}
+.fr-checkbox{width:18px;height:18px;border:1px solid #55524B;border-radius:2px;flex-shrink:0;}
+.fr-field{background:#0A0906;border:1px solid #262320;border-radius:2px;padding:13px 16px;font-size:14px;color:#EDE7DA;width:100%;}
+</style>
+</helmet>
+
+<div style="width:1440px;background:#000;">
+
+<dc-import name="Header" active-page="where" hint-size="1440px,84px"></dc-import>
+
+<!-- BREADCRUMBS -->
+<div style="max-width:1440px;margin:0 auto;padding:24px 40px 0 40px;display:flex;align-items:center;gap:8px;font-size:13px;color:#6E7072;">
+  <a href="#" style="font-size:13px;">Главная</a><span>/</span><span style="color:#B9BABC;">Где купить</span>
+</div>
+
+<div style="max-width:1440px;margin:0 auto;padding:24px 40px 32px 40px;">
+  <h1 style="font-size:34px;font-weight:600;margin-bottom:14px;">Где купить FERES</h1>
+  <p style="font-size:15px;color:#9A9C9E;line-height:1.6;max-width:760px;">Найдите ближайшего дилера, розничную точку, авторизованное СТО или закажите на маркетплейсе — все каналы продаж FERES в одном месте.</p>
+</div>
+
+<!-- FILTER TABS -->
+<div style="max-width:1440px;margin:0 auto;padding:0 40px 28px 40px;display:flex;gap:10px;">
+  <div class="fr-tab fr-tab-active">Все</div>
+  <div class="fr-tab">Оптовики</div>
+  <div class="fr-tab">Розница</div>
+  <div class="fr-tab">СТО</div>
+  <div class="fr-tab">Интернет-магазины</div>
+  <div class="fr-tab">Маркетплейсы</div>
+</div>
+
+<!-- MAP -->
+<div style="max-width:1440px;margin:0 auto;padding:0 40px 88px 40px;">
+  <div style="position:relative;height:420px;background:#0D0C0A;border:1px solid #262320;border-radius:2px;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(circle,#221F1A 1px,transparent 1px);background-size:28px 28px;"></div>
+    <svg width="20" height="27" viewBox="0 0 24 32" style="position:absolute;left:22%;top:32%;" fill="#DDCBA4"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+    <svg width="16" height="21" viewBox="0 0 24 32" style="position:absolute;left:41%;top:22%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+    <svg width="16" height="21" viewBox="0 0 24 32" style="position:absolute;left:52%;top:52%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+    <svg width="16" height="21" viewBox="0 0 24 32" style="position:absolute;left:67%;top:34%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+    <svg width="14" height="18" viewBox="0 0 24 32" style="position:absolute;left:78%;top:58%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+
+    <div style="position:absolute;left:24px;top:24px;display:flex;gap:10px;">
+      <div style="background:#0A0906;border:1px solid #35322B;border-radius:2px;display:flex;align-items:center;gap:10px;padding:12px 16px;width:280px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9A9C9E" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span style="font-size:13px;color:#6E7072;">Введите город</span>
+      </div>
+    </div>
+    <div style="position:absolute;right:24px;top:24px;display:flex;gap:10px;">
+      <button class="fr-btn-primary" style="padding:11px 20px;font-size:12px;">Стать партнёром</button>
+      <button class="fr-btn-secondary" style="padding:10px 19px;font-size:12px;">Добавить точку</button>
+    </div>
+    <div style="position:absolute;left:24px;bottom:20px;font-size:12px;color:#6E7072;max-width:420px;">Карта точек продаж наполняется по мере получения данных от дилеров и партнёров</div>
+  </div>
+</div>
+
+<!-- MARKETPLACES -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:64px 40px;">
+    <h2 class="fr-section-title">Маркетплейсы</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="fr-card" style="padding:28px;display:flex;flex-direction:column;gap:20px;">
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:22px;font-weight:700;">OZON</span>
+        <a href="https://ozon.ru/s/federal-reserve" style="font-size:13px;display:flex;align-items:center;gap:8px;">Перейти в магазин <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+      <div class="fr-card" style="padding:28px;display:flex;flex-direction:column;gap:20px;">
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:22px;font-weight:700;">Wildberries</span>
+        <a href="https://www.wildberries.ru/seller/250097192" style="font-size:13px;display:flex;align-items:center;gap:8px;">Перейти в магазин <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+      <div class="fr-card" style="padding:28px;display:flex;flex-direction:column;gap:20px;">
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:22px;font-weight:700;">Яндекс Маркет</span>
+        <a href="https://market.yandex.ru/cc/Aa8ijG" style="font-size:13px;display:flex;align-items:center;gap:8px;">Перейти в магазин <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ИНТЕРНЕТ-МАГАЗИНЫ -->
+<div style="max-width:1440px;margin:0 auto;padding:64px 40px;">
+  <h2 class="fr-section-title">Интернет-магазины</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    <div class="fr-card fr-shop">autopiter.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">avtoto.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">автолига.рф <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">tatparts.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">v01.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">stparts.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">autodoc.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">armtek.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">raros.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">avtoformula.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">rossko.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">exist.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">froza.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    <div class="fr-card fr-shop">greenlightparts.ru <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E7072" stroke-width="2.2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+  </div>
+</div>
+
+<!-- CTA BLOCKS -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:64px 40px 24px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    <div class="fr-card" style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+      <div style="width:44px;height:44px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Стать дилером</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Оптовые условия, маркетинговая поддержка и обучение</p>
+      <button class="fr-btn-secondary" style="width:fit-content;margin-top:6px;">Подать заявку</button>
+    </div>
+    <div class="fr-card" style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+      <div style="width:44px;height:44px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Добавить магазин</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Зарегистрируйте свою розничную точку в базе FERES</p>
+      <button class="fr-btn-secondary" style="width:fit-content;margin-top:6px;">Добавить</button>
+    </div>
+    <div class="fr-card" style="padding:32px;display:flex;flex-direction:column;gap:16px;">
+      <div style="width:44px;height:44px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 0 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 0 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Добавить СТО</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Техподдержка, обучение механиков, статус авторизованного СТО</p>
+      <button class="fr-btn-secondary" style="width:fit-content;margin-top:6px;">Добавить</button>
+    </div>
+  </div>
+</div>
+
+<!-- FORM: СТАТЬ ДИЛЕРОМ -->
+<div style="width:100%;background:#0A0906;border-bottom:1px solid #201D19;">
+  <div style="max-width:760px;margin:0 auto;padding:24px 40px 80px 40px;">
+    <div class="fr-card" style="padding:40px;display:flex;flex-direction:column;gap:20px;">
+      <h2 style="font-size:22px;font-weight:600;">Заявка «Стать дилером»</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <input class="fr-field" placeholder="Ваше имя">
+        <input class="fr-field" placeholder="Телефон">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <input class="fr-field" placeholder="Компания">
+        <input class="fr-field" placeholder="Город">
+      </div>
+      <textarea class="fr-field" placeholder="Комментарий" style="min-height:88px;resize:none;"></textarea>
+      <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:2px;">
+        <div class="fr-checkbox"></div>
+        <p style="font-size:12px;color:#9A9C9E;line-height:1.5;">Нажимая кнопку «Отправить», я соглашаюсь на <a href="#" style="text-decoration:underline;">обработку персональных данных</a> и с <a href="#" style="text-decoration:underline;">Политикой конфиденциальности</a></p>
+      </div>
+      <button class="fr-btn-secondary" style="justify-content:center;opacity:0.5;">Отправить заявку</button>
+    </div>
+  </div>
+</div>
+
+<dc-import name="Footer" hint-size="1440px,420px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>

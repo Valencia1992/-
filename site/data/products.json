@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "demo": true,
+    "note": "Демо-данные для прототипа. Артикулы и группы — реальные (из фотобанка и упаковки FERES), применяемость и описания — предварительные: на проде каталог приходит из 1С обменом CommerceML 2. Поля соответствуют будущей карточке товара.",
+    "groups": [
+      { "slug": "dvigatel", "name": "Двигатель и ЦПГ", "image": "assets/img/products/piston-group.webp", "desc": "Поршни, гильзы, кольца, шатуны, гидрокомпенсаторы, прокладки" },
+      { "slug": "tormoza", "name": "Тормозная система", "image": "assets/img/products/brake-disc.webp", "desc": "Диски, колодки, барабаны, цилиндры, шланги" },
+      { "slug": "transmissiya", "name": "Трансмиссия", "image": "assets/img/products/cv-joint.webp", "desc": "Сцепление, ШРУСы, приводы, пыльники" },
+      { "slug": "podveska", "name": "Подвеска и рулевое", "image": "assets/img/products/strut-mount.webp", "desc": "Опоры, сайлентблоки, шаровые, стойки стабилизатора" },
+      { "slug": "pitanie", "name": "Питание, зажигание, охлаждение", "image": "assets/img/products/belt.webp", "desc": "Ремни, насосы, свечи, катушки, помпы" },
+      { "slug": "filtry", "name": "Фильтры", "image": "assets/img/products/filter-fuel.webp", "desc": "Масляные, топливные, воздушные, салонные" }
+    ]
+  },
+  "products": [
+    {
+      "sku": "21127.100401587.01",
+      "name": "Комплект поршневой 21127",
+      "group": "Двигатель и ЦПГ",
+      "group_slug": "dvigatel",
+      "image": "assets/img/products/piston-group.webp",
+      "gallery": ["assets/img/products/piston-group-2.webp", "assets/img/products/piston-group-3.webp"],
+      "applicability": ["LADA Granta 1.6 16V (21127)", "LADA Priora 1.6 16V", "LADA Kalina 1.6 16V"],
+      "is_new": true
+    },
+    {
+      "sku": "2112-1007300-02",
+      "name": "Гидрокомпенсаторы, комплект",
+      "group": "Двигатель и ЦПГ",
+      "group_slug": "dvigatel",
+      "image": "assets/img/products/hydro-lifters.webp",
+      "gallery": ["assets/img/products/hydro-lifters-2.webp"],
+      "applicability": ["ВАЗ 2112 16V", "LADA Priora 16V", "LADA Granta 16V"],
+      "is_new": true
+    },
+    {
+      "sku": "11194-1004045-20F",
+      "name": "Шатун в сборе",
+      "group": "Двигатель и ЦПГ",
+      "group_slug": "dvigatel",
+      "image": "assets/img/products/con-rod.webp",
+      "gallery": ["assets/img/products/con-rod-2.webp"],
+      "applicability": ["LADA Kalina 1.4 16V (11194)"],
+      "is_new": true
+    },
+    {
+      "sku": "2112.3501070.05",
+      "name": "Диск тормозной вентилируемый",
+      "group": "Тормозная система",
+      "group_slug": "tormoza",
+      "image": "assets/img/products/brake-disc.webp",
+      "gallery": ["assets/img/products/brake-disc-2.webp"],
+      "applicability": ["ВАЗ 2110–2112", "LADA Priora"],
+      "is_new": false
+    },
+    {
+      "sku": "FR2110-3501080",
+      "name": "Колодки тормозные передние",
+      "group": "Тормозная система",
+      "group_slug": "tormoza",
+      "image": "assets/img/products/brake-pads.webp",
+      "gallery": ["assets/img/products/brake-pads-2.webp"],
+      "applicability": ["ВАЗ 2108–2115", "ВАЗ 2110–2112", "LADA Granta"],
+      "is_new": true
+    },
+    {
+      "sku": "FR2181CK-S",
+      "name": "Комплект сцепления",
+      "group": "Трансмиссия",
+      "group_slug": "transmissiya",
+      "image": "assets/img/products/clutch.webp",
+      "gallery": ["assets/img/products/clutch-2.webp"],
+      "applicability": ["LADA Vesta", "LADA XRAY"],
+      "is_new": false
+    },
+    {
+      "sku": "2170-2215012-21",
+      "name": "ШРУС наружный, комплект",
+      "group": "Трансмиссия",
+      "group_slug": "transmissiya",
+      "image": "assets/img/products/cv-joint.webp",
+      "gallery": ["assets/img/products/cv-joint-2.webp"],
+      "applicability": ["LADA Priora (2170)", "ВАЗ 2110–2112"],
+      "is_new": false
+    },
+    {
+      "sku": "2190.2902821.10",
+      "name": "Опора стойки передней подвески",
+      "group": "Подвеска и рулевое",
+      "group_slug": "podveska",
+      "image": "assets/img/products/strut-mount.webp",
+      "gallery": ["assets/img/products/strut-mount-2.webp"],
+      "applicability": ["LADA Granta (2190)", "LADA Kalina"],
+      "is_new": false
+    },
+    {
+      "sku": "FR6PK1005",
+      "name": "Ремень поликлиновой 6PK1005",
+      "group": "Питание, зажигание, охлаждение",
+      "group_slug": "pitanie",
+      "image": "assets/img/products/belt.webp",
+      "gallery": ["assets/img/products/belt-2.webp"],
+      "applicability": ["Привод агрегатов, 6PK1005"],
+      "is_new": false
+    },
+    {
+      "sku": "FR2123.1117010.01",
+      "name": "Фильтр топливный",
+      "group": "Фильтры",
+      "group_slug": "filtry",
+      "image": "assets/img/products/filter-fuel.webp",
+      "gallery": [],
+      "applicability": ["Chevrolet Niva (2123)", "ВАЗ 2123"],
+      "is_new": false
+    }
+  ]
+}

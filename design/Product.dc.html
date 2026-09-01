@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap');
+*{box-sizing:border-box;}
+body{margin:0;background:#000;color:#EDE7DA;font-family:'IBM Plex Sans Condensed',Arial,sans-serif;}
+h1,h2,h3{font-family:'Oswald',Arial,sans-serif;margin:0;color:#F2ECDD;letter-spacing:0.01em;}
+p{margin:0;}
+a{color:#DDCBA4;text-decoration:none;}
+a:hover{color:#EDE7DA;}
+.fr-eyebrow{font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#DDCBA4;}
+.fr-btn-primary{background:linear-gradient(135deg,#EEDFC0,#DDCBA4 60%,#C9B489);color:#0A0906;border:none;padding:15px 26px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-secondary{background:transparent;color:#EDE7DA;border:1px solid #55524B;padding:14px 25px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-secondary:hover{border-color:#DDCBA4;color:#DDCBA4;}
+.fr-card{background:#121110;border:1px solid #262320;border-radius:2px;}
+.fr-section-title{font-size:22px;font-weight:600;margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+.fr-section-title::after{content:'';flex:1;height:1px;background:#201D19;}
+.fr-badge{font-family:'Oswald',Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:2px;border:1px solid #35322B;color:#9A9C9E;display:inline-flex;align-items:center;gap:6px;}
+.fr-spec-row{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #201D19;font-size:14px;}
+.fr-pill{font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;padding:10px 18px;border-radius:2px;border:1px solid #262320;color:#9A9C9E;}
+</style>
+</helmet>
+
+<div style="width:1440px;background:#000;">
+
+<dc-import name="Header" active-page="catalog" hint-size="1440px,84px"></dc-import>
+
+<!-- BREADCRUMBS -->
+<div style="max-width:1440px;margin:0 auto;padding:24px 40px 0 40px;display:flex;align-items:center;gap:8px;font-size:13px;color:#6E7072;">
+  <a href="#" style="font-size:13px;">Главная</a><span>/</span><a href="#" style="font-size:13px;">Каталог</a><span>/</span><a href="#" style="font-size:13px;">Поршневая группа</a><span>/</span><span style="color:#B9BABC;">Поршень с пальцем к-т, Lada Vesta 1.6</span>
+</div>
+
+<div style="max-width:1440px;margin:0 auto;padding:12px 40px 0 40px;">
+  <span class="fr-badge" style="border-color:#3A362E;color:#7A7C7E;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>Демо-товар — данные для примера макета</span>
+</div>
+
+<!-- TOP: GALLERY + INFO -->
+<div style="max-width:1440px;margin:0 auto;padding:28px 40px 56px 40px;display:flex;gap:56px;">
+
+  <div style="flex:0 0 460px;display:flex;flex-direction:column;gap:14px;">
+    <div class="fr-card" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;">
+      <svg width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1"><rect x="7" y="3" width="10" height="7" rx="1"/><path d="M9 10v3M15 10v3"/><circle cx="12" cy="17" r="4"/></svg>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+      <div class="fr-card" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-color:#4A4438;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6E6A5F" stroke-width="1.2"><circle cx="12" cy="12" r="7"/></svg></div>
+      <div class="fr-card" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.2"><rect x="6" y="6" width="12" height="12" rx="1"/></svg></div>
+      <div class="fr-card" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.2"><path d="M4 12h16M12 4v16"/></svg></div>
+      <div class="fr-card" style="aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.2"><path d="M12 3v18M3 12h18" opacity="0"/><circle cx="12" cy="12" r="8"/></svg></div>
+    </div>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;gap:24px;">
+    <div>
+      <p class="fr-eyebrow" style="margin-bottom:10px;">Поршневая группа</p>
+      <h1 style="font-size:30px;font-weight:600;line-height:1.25;margin-bottom:12px;">Поршень с пальцем, комплект на 1 цилиндр — Lada Vesta 1.6 (21129)</h1>
+      <span style="font-size:14px;color:#6E7072;">Артикул FR-11284</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <span class="fr-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Сертифицировано</span>
+      <span class="fr-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>Поставки на конвейер АВТОВАЗ</span>
+    </div>
+    <div style="display:flex;gap:14px;margin-top:6px;">
+      <button class="fr-btn-primary">Где купить
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <button class="fr-btn-secondary"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Скачать PDF</button>
+      <button class="fr-btn-secondary"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.4 8-8 10-4.6-2-8-5-8-10V6l8-4z"/></svg>Сертификат</button>
+    </div>
+    <p style="font-size:12px;color:#4E5052;">Цены доступны дилерам после входа в личный кабинет.</p>
+
+    <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;">
+      <span class="fr-pill">Преимущества</span><span class="fr-pill">Применяемость</span><span class="fr-pill">OEM</span><span class="fr-pill">Характеристики</span><span class="fr-pill">Отзывы</span><span class="fr-pill">Статьи</span>
+    </div>
+  </div>
+</div>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:56px 40px;">
+    <h2 class="fr-section-title">Преимущества</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:12px;"><div style="width:36px;height:36px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div><p style="font-size:14px;line-height:1.5;color:#B9BABC;">Устойчивость к высоким термическим нагрузкам</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;"><div style="width:36px;height:36px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1"/></svg></div><p style="font-size:14px;line-height:1.5;color:#B9BABC;">Точное соответствие геометрии OEM</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;"><div style="width:36px;height:36px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><p style="font-size:14px;line-height:1.5;color:#B9BABC;">Контроль на каждом этапе литья и мехобработки</p></div>
+      <div style="display:flex;flex-direction:column;gap:12px;"><div style="width:36px;height:36px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.8"><path d="M4 12h16M4 8h10M4 16h10"/></svg></div><p style="font-size:14px;line-height:1.5;color:#B9BABC;">Балансировка по массе в пределах комплекта</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ПРИМЕНЯЕМОСТЬ -->
+<div style="max-width:1440px;margin:0 auto;padding:56px 40px;">
+  <h2 class="fr-section-title">Применяемость</h2>
+  <div class="fr-card" style="padding:0;overflow:hidden;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;padding:16px 24px;background:#161310;font-family:'Oswald',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#9A9C9E;">
+      <span>Марка</span><span>Модель</span><span>Поколение</span><span>Модификация / двигатель</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;padding:16px 24px;font-size:14px;border-top:1px solid #201D19;"><span>Lada</span><span>Vesta</span><span>2015–наст. время</span><span>1.6 (21129), 106 л.с.</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;padding:16px 24px;font-size:14px;border-top:1px solid #201D19;"><span>Lada</span><span>Vesta Cross</span><span>2017–наст. время</span><span>1.6 (21129), 106 л.с.</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;padding:16px 24px;font-size:14px;border-top:1px solid #201D19;"><span>Lada</span><span>XRAY</span><span>2015–наст. время</span><span>1.6 (21129), 106 л.с.</span></div>
+  </div>
+</div>
+
+<!-- OEM + КРОССЫ -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;">
+    <div>
+      <h2 class="fr-section-title">OEM-номера</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span class="fr-pill">21129-1004015</span>
+        <span class="fr-pill">21129-1000105-10</span>
+      </div>
+      <p style="font-size:12px;color:#4E5052;margin-top:16px;line-height:1.6;">Если OEM-номер ещё не внесён в карточку — блок не отображается.</p>
+    </div>
+    <div>
+      <h2 class="fr-section-title">Кроссы (аналоги)</h2>
+      <div class="fr-card" style="padding:0;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:14px 20px;font-size:14px;border-bottom:1px solid #201D19;"><span style="color:#9A9C9E;">Бренд</span><span style="color:#9A9C9E;">Артикул аналога</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:14px 20px;font-size:14px;border-bottom:1px solid #201D19;"><span>Kolbenschmidt</span><span>93 5xx 610</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;padding:14px 20px;font-size:14px;"><span>Trialli</span><span>PA 51xx</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ХАРАКТЕРИСТИКИ + КОМПЛЕКТАЦИЯ -->
+<div style="max-width:1440px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;">
+  <div>
+    <h2 class="fr-section-title">Характеристики</h2>
+    <div class="fr-spec-row"><span style="color:#9A9C9E;">Диаметр поршня</span><span>⌀ 76,0 мм, ремонтный + 0,4</span></div>
+    <div class="fr-spec-row"><span style="color:#9A9C9E;">Материал</span><span>Алюминиевый сплав, эвтектический</span></div>
+    <div class="fr-spec-row"><span style="color:#9A9C9E;">Класс точности</span><span>Группа A</span></div>
+    <div class="fr-spec-row"><span style="color:#9A9C9E;">Ресурс</span><span>100 000+ км эксплуатации</span></div>
+    <div class="fr-spec-row" style="border-bottom:none;"><span style="color:#9A9C9E;">Комплект</span><span>На 1 цилиндр</span></div>
+  </div>
+  <div>
+    <h2 class="fr-section-title">Комплектация</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:12px;font-size:14px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Поршень</div>
+      <div style="display:flex;align-items:center;gap:12px;font-size:14px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Палец поршневой</div>
+      <div style="display:flex;align-items:center;gap:12px;font-size:14px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Стопорные кольца — 2 шт.</div>
+      <div style="display:flex;align-items:center;gap:12px;font-size:14px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Комплект колец поршневых</div>
+    </div>
+  </div>
+</div>
+
+<!-- ВИДЕО + ИНСТРУКЦИЯ -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:56px;">
+    <div>
+      <h2 class="fr-section-title">Видео</h2>
+      <div class="fr-card" style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;">
+        <div style="width:64px;height:64px;border-radius:50%;background:#DDCBA4;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0A0906"><path d="M8 5v14l11-7z"/></svg></div>
+        <span style="position:absolute;bottom:16px;left:20px;font-size:12px;color:#6E7072;">Подтягивается из соцсетей компании</span>
+      </div>
+    </div>
+    <div>
+      <h2 class="fr-section-title">Инструкция</h2>
+      <div class="fr-card" style="padding:20px;display:flex;align-items:center;gap:16px;">
+        <div style="width:44px;height:44px;border:1px solid #35322B;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <div style="flex:1;"><p style="font-size:14px;font-weight:600;">Инструкция по установке</p><p style="font-size:12px;color:#6E7072;margin-top:4px;">PDF, 1,2 МБ</p></div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ОТЗЫВЫ -->
+<div style="max-width:1440px;margin:0 auto;padding:56px 40px;">
+  <h2 class="fr-section-title">Отзывы <span style="color:#DDCBA4;font-family:'Oswald',Arial,sans-serif;font-size:15px;">4.8 · Ozon</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+    <div class="fr-card" style="padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;gap:2px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+      </div>
+      <p style="font-size:14px;color:#B9BABC;line-height:1.6;">Встал без доработки, зазоры в норме. Ставлю второй раз на разные Весты.</p>
+      <span style="font-size:12px;color:#6E7072;">Покупатель · Ozon</span>
+    </div>
+    <div class="fr-card" style="padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;gap:2px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+      </div>
+      <p style="font-size:14px;color:#B9BABC;line-height:1.6;">Комплект пришёл с сертификатом. Пробег пока небольшой, но по посадке нареканий нет.</p>
+      <span style="font-size:12px;color:#6E7072;">Покупатель · Ozon</span>
+    </div>
+    <div class="fr-card" style="padding:22px;display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;gap:2px;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="#DDCBA4"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg>
+      </div>
+      <p style="font-size:14px;color:#B9BABC;line-height:1.6;">Мастер на СТО отметил хорошую балансировку комплекта. Рекомендую.</p>
+      <span style="font-size:12px;color:#6E7072;">Покупатель · Ozon</span>
+    </div>
+  </div>
+</div>
+
+<!-- С ЭТИМ ТОВАРОМ ПОКУПАЮТ -->
+<div style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:56px 40px;">
+    <h2 class="fr-section-title">С этим товаром покупают</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="fr-card" style="display:flex;align-items:center;gap:16px;padding:16px;">
+        <div style="width:64px;height:64px;background:#161310;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.4"><circle cx="12" cy="12" r="8"/></svg></div>
+        <div><p style="font-size:14px;font-weight:600;line-height:1.35;">Прокладка ГБЦ — Lada Vesta 1.6</p><span style="font-size:12px;color:#6E7072;">FR-80071</span></div>
+      </div>
+      <div class="fr-card" style="display:flex;align-items:center;gap:16px;padding:16px;">
+        <div style="width:64px;height:64px;background:#161310;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.4"><rect x="6" y="6" width="12" height="12" rx="1"/></svg></div>
+        <div><p style="font-size:14px;font-weight:600;line-height:1.35;">Комплект прокладок двигателя</p><span style="font-size:12px;color:#6E7072;">FR-80090</span></div>
+      </div>
+      <div class="fr-card" style="display:flex;align-items:center;gap:16px;padding:16px;">
+        <div style="width:64px;height:64px;background:#161310;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4438" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4"/></svg></div>
+        <div><p style="font-size:14px;font-weight:600;line-height:1.35;">Гильза цилиндра — Lada Vesta 1.6</p><span style="font-size:12px;color:#6E7072;">FR-10902</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- СТАТЬИ -->
+<div style="max-width:1440px;margin:0 auto;padding:56px 40px;">
+  <h2 class="fr-section-title">Статьи по теме</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;gap:12px;">
+      <span class="fr-badge" style="width:fit-content;">Дзен</span>
+      <h3 style="font-size:16px;font-weight:600;line-height:1.4;">Как проверить поршневую группу: 5 признаков износа</h3>
+    </div>
+    <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;gap:12px;">
+      <span class="fr-badge" style="width:fit-content;">Drive2</span>
+      <h3 style="font-size:16px;font-weight:600;line-height:1.4;">Замена поршневой на Lada Vesta: пошаговый разбор</h3>
+    </div>
+  </div>
+</div>
+
+<dc-import name="Footer" hint-size="1440px,420px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>

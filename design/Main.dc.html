@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap');
+*{box-sizing:border-box;}
+body{margin:0;background:#000;color:#EDE7DA;font-family:'IBM Plex Sans Condensed',Arial,sans-serif;}
+h1,h2,h3{font-family:'Oswald',Arial,sans-serif;margin:0;color:#F2ECDD;letter-spacing:0.01em;}
+p{margin:0;}
+a{color:#DDCBA4;text-decoration:none;}
+a:hover{color:#EDE7DA;}
+.fr-eyebrow{font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#DDCBA4;}
+.fr-btn-primary{background:linear-gradient(135deg,#EEDFC0,#DDCBA4 60%,#C9B489);color:#0A0906;border:none;padding:16px 30px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:14px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-primary:hover{background:linear-gradient(135deg,#F5E9CE,#E6D3A9 60%,#D2BC90);}
+.fr-btn-secondary{background:transparent;color:#EDE7DA;border:1px solid #55524B;padding:15px 29px;font-family:'Oswald',Arial,sans-serif;font-weight:600;font-size:14px;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;display:inline-flex;align-items:center;gap:10px;}
+.fr-btn-secondary:hover{border-color:#DDCBA4;color:#DDCBA4;}
+.fr-card{background:#121110;border:1px solid #262320;border-radius:2px;}
+.fr-card:hover{border-color:#4A4438;}
+.fr-diag{position:absolute;inset:0;background-image:repeating-linear-gradient(115deg,rgba(151,153,155,0.14) 0px,rgba(151,153,155,0.14) 1px,transparent 1px,transparent 56px);pointer-events:none;}
+.fr-tick{font-family:'IBM Plex Sans Condensed',Arial,sans-serif;font-size:12px;letter-spacing:0.28em;color:#6E6A5F;}
+.fr-icon-ring{width:44px;height:44px;border:1px solid #3A362E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+</style>
+</helmet>
+
+<div style="width:1440px;background:#000;">
+
+<dc-import name="Header" active-page="" hint-size="1440px,84px"></dc-import>
+
+<!-- HERO -->
+<section style="position:relative;width:100%;background:#000;overflow:hidden;border-bottom:1px solid #201D19;">
+  <div class="fr-diag"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:96px 40px 88px 40px;display:flex;align-items:center;gap:64px;">
+    <div style="flex:0 0 620px;display:flex;flex-direction:column;gap:28px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:1px;background:#DDCBA4;"></div>
+        <p class="fr-eyebrow">Federal Reserve · Производитель автокомпонентов</p>
+      </div>
+      <h1 style="font-size:52px;line-height:1.08;font-weight:700;text-transform:uppercase;">Детали, на которые<br>полагается АВТОВАЗ</h1>
+      <p style="font-size:17px;line-height:1.6;color:#B9BABC;max-width:520px;">Собственный литейный комплекс и 5 производственных площадок. Специализация — цилиндропоршневая группа. Продукция сертифицирована и поставляется на конвейер АО «АВТОВАЗ».</p>
+      <div style="display:flex;gap:16px;margin-top:8px;">
+        <button class="fr-btn-primary">Перейти в каталог
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <button class="fr-btn-secondary">Стать дилером</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:12px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span class="fr-tick">СЕРТИФИЦИРОВАНО · ПОСТАВЩИК КОНВЕЙЕРА АВТОВАЗ</span>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;justify-content:flex-end;">
+      <div style="width:480px;height:560px;border:1px solid #35322B;border-radius:2px;overflow:hidden;position:relative;">
+        <img src="hero-piston-left.jpg" alt="Цилиндропоршневая группа FERES" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(0,0,0,0.82),transparent);padding:20px 24px;">
+          <p style="font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#F2ECDD;">Цилиндропоршневая группа</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section style="width:100%;background:#0A0906;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:44px 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+    <div style="display:flex;gap:16px;align-items:flex-start;">
+      <div class="fr-icon-ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+      <div><p style="font-family:'Oswald',Arial,sans-serif;font-size:24px;font-weight:700;color:#DDCBA4;line-height:1.1;">5</p><p style="font-size:13px;color:#9A9C9E;margin-top:6px;line-height:1.4;">Производственных площадок</p></div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:flex-start;">
+      <div class="fr-icon-ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M5 17h14l-1.5-6.5a2 2 0 0 0-2-1.5H8.5a2 2 0 0 0-2 1.5L5 17z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg></div>
+      <div><p style="font-family:'Oswald',Arial,sans-serif;font-size:24px;font-weight:700;color:#DDCBA4;line-height:1.1;">АВТОВАЗ</p><p style="font-size:13px;color:#9A9C9E;margin-top:6px;line-height:1.4;">Поставщик деталей на конвейер</p></div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:flex-start;">
+      <div class="fr-icon-ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div><p style="font-family:'Oswald',Arial,sans-serif;font-size:24px;font-weight:700;color:#DDCBA4;line-height:1.1;">802</p><p style="font-size:13px;color:#9A9C9E;margin-top:6px;line-height:1.4;">Позиции в актуальном прайс-листе</p></div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:flex-start;">
+      <div class="fr-icon-ring"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.4 8-8 10-4.6-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><p style="font-family:'Oswald',Arial,sans-serif;font-size:24px;font-weight:700;color:#DDCBA4;line-height:1.1;">100%</p><p style="font-size:13px;color:#9A9C9E;margin-top:6px;line-height:1.4;">Продукция сертифицирована</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 WAYS TO SEARCH -->
+<section style="width:100%;background:#000;">
+  <div style="max-width:1440px;margin:0 auto;padding:88px 40px 72px 40px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <p class="fr-eyebrow">Каталог</p>
+        <h2 style="font-size:32px;font-weight:600;">4 способа найти деталь</h2>
+      </div>
+      <a href="#" style="font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;">Весь каталог
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div class="fr-card" style="padding:32px 28px;display:flex;flex-direction:column;gap:20px;min-height:200px;">
+        <div style="width:48px;height:48px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></div>
+        <div><h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">По группам товаров</h3><p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Поршневая группа, ГРМ, тормоза, подвеска и другие узлы</p></div>
+      </div>
+      <div class="fr-card" style="padding:32px 28px;display:flex;flex-direction:column;gap:20px;min-height:200px;">
+        <div style="width:48px;height:48px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M5 17h14l-1.5-6.5a2 2 0 0 0-2-1.5H8.5a2 2 0 0 0-2 1.5L5 17z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg></div>
+        <div><h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">По автомобилю</h3><p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Марка → модель → поколение → модификация</p></div>
+      </div>
+      <div class="fr-card" style="padding:32px 28px;display:flex;flex-direction:column;gap:20px;min-height:200px;">
+        <div style="width:48px;height:48px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 6v12M11 6v12M15 6v12"/></svg></div>
+        <div><h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">По артикулу</h3><p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Точный поиск по коду детали FERES</p></div>
+      </div>
+      <div class="fr-card" style="padding:32px 28px;display:flex;flex-direction:column;gap:20px;min-height:200px;">
+        <div style="width:48px;height:48px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div><h3 style="font-size:18px;font-weight:600;margin-bottom:8px;">По OEM и кроссу</h3><p style="font-size:14px;color:#9A9C9E;line-height:1.5;">Найдите замену по номеру производителя</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:88px 40px;">
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px;">
+      <p class="fr-eyebrow">802 позиции в прайс-листе</p>
+      <h2 style="font-size:32px;font-weight:600;">Ассортимент по группам</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:16px;">
+      <div class="fr-card" style="grid-column:span 2;grid-row:span 2;padding:32px;display:flex;flex-direction:column;justify-content:space-between;background:#161310;border-color:#4A4438;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div style="width:52px;height:52px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><rect x="7" y="3" width="10" height="7" rx="1"/><path d="M9 10v3M15 10v3"/><circle cx="12" cy="17" r="4"/></svg>
+          </div>
+          <span style="font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#0A0906;background:#DDCBA4;padding:5px 12px;border-radius:2px;">44% ассортимента</span>
+        </div>
+        <div>
+          <h3 style="font-size:24px;font-weight:600;margin-bottom:6px;">Поршневая группа</h3>
+          <p style="font-size:14px;color:#9A9C9E;">Поршни, кольца, ШПГ, гильзы, шатуны — 131 позиция</p>
+        </div>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div><span style="font-size:12px;color:#6E7072;">~102</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">ГРМ и клапанный механизм</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.4"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg></div><span style="font-size:12px;color:#6E7072;">~66</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Тормозная система</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M4 16l3-9h2l1 4h4l1-4h2l3 9"/><path d="M4 16h16"/></svg></div><span style="font-size:12px;color:#6E7072;">~67</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Подвеска</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><rect x="5" y="9" width="14" height="6" rx="1"/><path d="M8 9V7M16 9V7"/></svg></div><span style="font-size:12px;color:#6E7072;">~42</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Прокладки</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M4 12h4M16 12h4M12 4v4M12 16v4"/></svg></div><span style="font-size:12px;color:#6E7072;">22</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">ШРУС</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div><span style="font-size:12px;color:#6E7072;">18</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Система охлаждения</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><span style="font-size:12px;color:#6E7072;">12</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Электрика и зажигание</h3>
+      </div>
+      <div class="fr-card" style="padding:24px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div class="fr-icon-ring" style="width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M4 6h16l-6 7v5l-4 2v-7L4 6z"/></svg></div><span style="font-size:12px;color:#6E7072;">~19</span></div>
+        <h3 style="font-size:15px;font-weight:600;line-height:1.3;">Фильтры</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USP -->
+<section style="width:100%;background:#000;">
+  <div style="max-width:1440px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;">
+      <div style="width:72px;height:72px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.4 8-8 10-4.6-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Инженерное качество</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.6;max-width:280px;">Контроль на каждом этапе литья и механической обработки</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;">
+      <div style="width:72px;height:72px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Надёжность без компромиссов</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.6;max-width:280px;">Собственный литейный комплекс и точное соответствие геометрии OEM</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;">
+      <div style="width:72px;height:72px;border:1px solid #DDCBA4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#DDCBA4" stroke-width="1.6"><path d="M5 17h14l-1.5-6.5a2 2 0 0 0-2-1.5H8.5a2 2 0 0 0-2 1.5L5 17z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg></div>
+      <h3 style="font-size:17px;font-weight:600;">Выбор профессионалов</h3>
+      <p style="font-size:14px;color:#9A9C9E;line-height:1.6;max-width:280px;">Поставщик на конвейер АО «АВТОВАЗ», доверие дилеров и СТО</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO BUY TEASER -->
+<section style="width:100%;background:#0A0906;border-top:1px solid #201D19;border-bottom:1px solid #201D19;">
+  <div style="max-width:1440px;margin:0 auto;padding:88px 40px;display:flex;gap:64px;align-items:center;">
+    <div style="flex:0 0 480px;display:flex;flex-direction:column;gap:22px;">
+      <p class="fr-eyebrow">Где купить</p>
+      <h2 style="font-size:32px;font-weight:600;line-height:1.2;">Найдите деталь FERES рядом с вами</h2>
+      <p style="font-size:15px;color:#9A9C9E;line-height:1.6;">Оптовые дилеры, розничные точки, СТО, интернет-магазины и маркетплейсы — все каналы продаж на одной карте.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;">
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;border:1px solid #35322B;padding:10px 18px;border-radius:2px;">OZON</span>
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;border:1px solid #35322B;padding:10px 18px;border-radius:2px;">Wildberries</span>
+        <span style="font-family:'Oswald',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;border:1px solid #35322B;padding:10px 18px;border-radius:2px;">Яндекс Маркет</span>
+      </div>
+      <button class="fr-btn-secondary" style="width:fit-content;margin-top:10px;">Все точки продаж</button>
+    </div>
+    <div style="flex:1;height:340px;background:#111;border:1px solid #262320;border-radius:2px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:radial-gradient(circle,#221F1A 1px,transparent 1px);background-size:26px 26px;"></div>
+      <svg width="18" height="24" viewBox="0 0 24 32" style="position:absolute;left:32%;top:38%;" fill="#DDCBA4"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+      <svg width="14" height="19" viewBox="0 0 24 32" style="position:absolute;left:58%;top:22%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+      <svg width="14" height="19" viewBox="0 0 24 32" style="position:absolute;left:70%;top:56%;" fill="#8C8A80"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20c0-6.6-5.4-12-12-12zm0 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+      <div style="position:absolute;left:24px;bottom:24px;font-size:12px;color:#6E7072;">Точки на карте — наполняются по мере получения данных от дилеров</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS CTA -->
+<section style="position:relative;width:100%;background:#000;overflow:hidden;">
+  <div class="fr-diag"></div>
+  <div style="position:relative;max-width:1440px;margin:0 auto;padding:80px 40px;display:flex;align-items:center;justify-content:space-between;gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:600px;">
+      <p class="fr-eyebrow">Партнёрам</p>
+      <h2 style="font-size:30px;font-weight:600;line-height:1.25;">Станьте дилером FERES</h2>
+      <p style="font-size:15px;color:#9A9C9E;line-height:1.6;">Дилерские цены, маркетинговая поддержка, обучение и личный кабинет с историей заказов и бонусной программой.</p>
+    </div>
+    <div style="display:flex;gap:16px;flex-shrink:0;">
+      <button class="fr-btn-primary">Подать заявку</button>
+      <button class="fr-btn-secondary">Скачать прайс</button>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="1440px,420px"></dc-import>
+
+<!-- COOKIE BANNER -->
+<div style="position:fixed;left:0;right:0;bottom:0;background:#0D0C0A;border-top:1px solid #35322B;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:100;">
+  <p style="font-size:13px;color:#9A9C9E;line-height:1.5;max-width:760px;">Мы используем cookie для корректной работы сайта. Подробнее — <a href="#" style="text-decoration:underline;">Использование cookie</a>.</p>
+  <div style="display:flex;gap:12px;flex-shrink:0;">
+    <button class="fr-btn-secondary" style="padding:10px 20px;font-size:12px;">Настроить</button>
+    <button class="fr-btn-primary" style="padding:11px 24px;font-size:12px;">Принять</button>
+  </div>
+</div>
+
+</div>
+</x-dc>
+</body>
+</html>
