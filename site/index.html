@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FERES — автокомпоненты для профессионального ремонта | производитель, Тольятти</title>
-<meta name="description" content="FERES — автокомпоненты ООО «Федерал Резерв»: детали для ВАЗ, LADA, ГАЗ и УАЗ. 833 позиции в каталоге, подбор по автомобилю, артикулу и OEM. Где купить и как стать партнёром.">
+<title>Автозапчасти для легкового и грузового транспорта | FERES</title>
+<meta name="description" content="Автозапчасти для легкового и грузового транспорта. Собственное производство, поставки по России и СНГ. Подбор по марке авто, артикулу и названию товара.">
 <link rel="canonical" href="https://feres.ru/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FERES">
-<meta property="og:title" content="FERES — уверенность после ремонта">
-<meta property="og:description" content="Автокомпоненты для профессионального ремонта: каталог производителя, подбор по автомобилю, точки продаж и условия для партнёров.">
+<meta property="og:title" content="Автозапчасти для легкового и грузового транспорта | FERES">
+<meta property="og:description" content="Собственное производство автозапчастей, поставки по России и СНГ. Подбор по марке авто, артикулу и названию товара.">
 <meta property="og:url" content="https://feres.ru/">
 <meta property="og:image" content="https://feres.ru/assets/img/brand/favicon-512.png">
 <link rel="icon" href="assets/img/brand/favicon.ico" sizes="any">
@@ -44,7 +44,7 @@
 
     <nav class="nav" aria-label="Основное меню">
       <a href="catalog.html">Каталог</a>
-      <a href="catalog.html#by-car">Подбор по авто</a>
+      <button class="nav__search-trigger" type="button" data-search-open>Поиск</button>
       <a href="where-to-buy.html">Где купить</a>
       <a href="partners.html">Партнёрам</a>
       <a href="knowledge.html">База знаний</a>
@@ -114,12 +114,12 @@
     </div>
 
     <div class="wrap hero__stage">
-      <h1 class="hero__title">Уверенность<span class="l2">после ремонта</span></h1>
-      <p class="hero__sub">Клиент покупает не деталь, а исправный автомобиль. FERES — компоненты для профессионального ремонта: инженерное качество, проверенная применяемость и поддержка, которая не заканчивается на отгрузке.</p>
+      <h1 class="hero__title">Автозапчасти для легкового<br>и грузового транспорта</h1>
+      <p class="hero__sub">Собственное производство автозапчастей, поставки по России и СНГ.</p>
       <ul class="ticks hero__ticks">
-        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Инженерное качество</li>
-        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Надёжность без компромиссов</li>
-        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Выбор профессионалов</li>
+        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Поршни · шатуны · ГРМ · сцепление</li>
+        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Тормозные диски · шрусы · шаровые</li>
+        <li class="tick"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Проверенная применяемость и качество</li>
       </ul>
     </div>
   </div>
@@ -139,6 +139,20 @@
     </div>
   </div>
 </section>
+
+<div class="search-modal" data-search-modal aria-hidden="true">
+  <div class="search-modal__backdrop" data-search-close></div>
+  <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <button class="search-modal__close" type="button" data-search-close aria-label="Закрыть поиск">×</button>
+    <p class="eyebrow">Поиск</p>
+    <h3 class="h3" id="search-modal-title">Подберём автозапчасть</h3>
+    <form class="search-modal__form" data-search-modal-form action="catalog.html" method="get">
+      <label class="vh" for="modal-q">Введите марку автомобиля, артикул, название товара</label>
+      <input id="modal-q" name="q" type="search" autocomplete="off" placeholder="Марка автомобиля, артикул, название товара" aria-label="Поиск по каталогу">
+      <button class="btn btn--primary" type="submit">Найти</button>
+    </form>
+  </div>
+</div>
 
 <!-- ================= УМНЫЙ ПОИСК ================= -->
 <section class="searchbar">
@@ -161,6 +175,74 @@
         <button class="chip" type="button" data-chip="FR6PK1005">FR6PK1005</button>
         <button class="chip" type="button" data-chip="колодки">колодки тормозные</button>
         <button class="chip" type="button" data-chip="LADA Granta">LADA Granta</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СЕРИИ ПРОДУКЦИИ ================= -->
+<section class="section section--ink1 section--line">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Серии продукции</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Линейка под разные условия эксплуатации</h2>
+      </div>
+    </div>
+
+    <div class="series-grid" data-stagger>
+      <article class="card lac series-card reveal">
+        <span class="series-card__mark">Classic</span>
+        <h3 class="h3">Линейка Classic</h3>
+        <p class="small">Для автовладельцев с умеренным стилем езды и без повышенных нагрузок на двигатель.</p>
+        <ul class="series-card__list">
+          <li>Оптимальный баланс цены и ресурса</li>
+          <li>Подходит для повседневной эксплуатации</li>
+          <li>Жёлтая упаковка — визуальная идентификация линейки</li>
+        </ul>
+      </article>
+
+      <article class="card lac series-card reveal">
+        <span class="series-card__mark series-card__mark--platinum">Platinum</span>
+        <h3 class="h3">Линейка Platinum</h3>
+        <p class="small">Для владельцев, которым требуется повышенный ресурс деталей при работе под нагрузками и длительном пробеге.</p>
+        <ul class="series-card__list">
+          <li>Повышенная стойкость к нагрузкам</li>
+          <li>Решения для интенсивной эксплуатации</li>
+          <li>Серая коробка — версия с повышенным ресурсом</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap anti-fake">
+    <div class="anti-fake__text">
+      <p class="eyebrow">Остерегайтесь подделки</p>
+      <h2 class="h2">Как проверить оригинальность продукции</h2>
+      <p class="body">Перед покупкой важно убедиться, что деталь не поддельная. FERES использует защиту на упаковке и маркировке изделия.</p>
+      <ul class="anti-fake__list">
+        <li>Проверить голограмму на упаковке</li>
+        <li>Отправить код на номер, указанный на упаковке</li>
+        <li>Проверить логотип на изделии и маркировку</li>
+      </ul>
+    </div>
+    <div class="anti-fake__card">
+      <div class="anti-fake__steps">
+        <div class="anti-fake__step">
+          <span>01</span>
+          <p>Сканируйте голограмму и проверьте упаковку.</p>
+        </div>
+        <div class="anti-fake__step">
+          <span>02</span>
+          <p>Отправьте код на номер, указанный на коробке.</p>
+        </div>
+        <div class="anti-fake__step">
+          <span>03</span>
+          <p>Проверьте логотип и нанесение на самой детали.</p>
+        </div>
       </div>
     </div>
   </div>
