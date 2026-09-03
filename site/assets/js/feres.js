@@ -7,6 +7,14 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  var heroVideo = document.querySelector('.hero__bg video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+    heroVideo.autoplay = true;
+    heroVideo.play().catch(function () {});
+  }
+
   /* --- Шапка: состояние при скролле ------------------------------------ */
   var header = document.querySelector('.header');
   if (header) {
@@ -31,8 +39,99 @@
     if (e.target.closest('[data-menu-close]')) { openMenu(false); }
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') { openMenu(false); closeSuggest(); }
+    if (e.key === 'Escape') { openMenu(false); closeSuggest(); closeSearchModal(); }
   });
+
+  /* --- Попап поиска в шапке ------------------------------------------- */
+  var searchModal = document.querySelector('[data-search-modal]');
+  var modalInput = searchModal ? searchModal.querySelector('input[type="search"]') : null;
+  var modalForm = document.querySelector('[data-search-modal-form]');
+  var modalResults = searchModal ? searchModal.querySelector('[data-search-modal-results]') : null;
+  var modalProducts = [];
+
+  function normalizeText(value) {
+    return String(value || '').toLowerCase().replace(/[^a-zа-я0-9]/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+  }
+
+  function renderModalResults(query) {
+    if (!modalResults) return;
+    var q = normalizeText(query);
+    if (!q) {
+      modalResults.innerHTML = '<div class="search-modal__empty">Введите марку автомобиля, артикул или название товара.</div>';
+      return;
+    }
+
+    var matches = modalProducts.filter(function (product) {
+      var haystack = [
+        product.name,
+        product.sku,
+        product.group,
+        (product.applicability || []).join(' ')
+      ].join(' ');
+      return normalizeText(haystack).indexOf(q) !== -1;
+    }).slice(0, 8);
+
+    if (!matches.length) {
+      modalResults.innerHTML = '<div class="search-modal__empty">Ничего не найдено. Попробуйте марку, OEM-номер или название детали.</div>';
+      return;
+    }
+
+    modalResults.innerHTML = matches.map(function (product) {
+      return '<a class="search-modal__item" href="product.html?sku=' + encodeURIComponent(product.sku) + '">' +
+        '<img src="' + product.image + '" alt="" loading="lazy" width="48" height="48">' +
+        '<span class="search-modal__meta"><strong>' + product.name + '</strong><span>' + product.sku + ' · ' + product.group + '</span></span>' +
+        '</a>';
+    }).join('');
+  }
+
+  function openSearchModal() {
+    if (!searchModal || !modalInput) return;
+    searchModal.classList.add('is-open');
+    searchModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { modalInput.focus(); }, 30);
+    if (!modalProducts.length) {
+      fetch('data/products.json')
+        .then(function (response) { return response.ok ? response.json() : { products: [] }; })
+        .then(function (data) {
+          modalProducts = data.products || [];
+          renderModalResults(modalInput.value);
+        })
+        .catch(function () {
+          modalProducts = [];
+          renderModalResults(modalInput.value);
+        });
+    }
+  }
+  function closeSearchModal() {
+    if (!searchModal) return;
+    searchModal.classList.remove('is-open');
+    searchModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-search-open]')) { e.stopPropagation(); openSearchModal(); }
+    if (e.target.closest('[data-search-close]')) { e.stopPropagation(); closeSearchModal(); }
+  });
+  if (searchModal) {
+    searchModal.addEventListener('click', function (e) {
+      if (e.target === searchModal || e.target.closest('[data-search-close]')) {
+        closeSearchModal();
+      }
+    });
+  }
+
+  if (modalForm && modalInput) {
+    modalInput.addEventListener('input', function () {
+      renderModalResults(modalInput.value);
+    });
+
+    modalForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      renderModalResults(modalInput.value);
+    });
+  }
 
   /* --- «Лак»: блик следует за курсором --------------------------------- */
   if (!reduced && window.matchMedia('(hover: hover)').matches) {
@@ -79,14 +178,15 @@
   if (counters.length) {
     var run = function (el) {
       var target = parseFloat(el.dataset.count);
+      var suffix = el.dataset.suffix || '';
       if (!isFinite(target)) return;          /* не число — не наш элемент, не трогаем */
       var dur = 1100;
-      if (reduced) { el.textContent = format(target); return; }
+      if (reduced) { el.textContent = format(target) + suffix; return; }
       var t0 = performance.now();
       var step = function (now) {
         var p = Math.min(1, (now - t0) / dur);
         var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = format(Math.round(target * eased));
+        el.textContent = format(Math.round(target * eased)) + suffix;
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);

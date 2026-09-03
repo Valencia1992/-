@@ -96,7 +96,9 @@
 <section class="hero">
   <div class="hero__scene">
     <div class="hero__bg" aria-hidden="true">
-      <img src="assets/img/atmo/crop-wide.jpg" alt="" fetchpriority="high" decoding="async">
+      <video autoplay muted loop playsinline poster="assets/img/atmo/crop-wide.jpg">
+        <source src="assets/video/feres-production.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>
     <div class="hero__diag" aria-hidden="true"></div>
@@ -146,39 +148,14 @@
     <button class="search-modal__close" type="button" data-search-close aria-label="Закрыть поиск">×</button>
     <p class="eyebrow">Поиск</p>
     <h3 class="h3" id="search-modal-title">Подберём автозапчасть</h3>
-    <form class="search-modal__form" data-search-modal-form action="catalog.html" method="get">
+    <form class="search-modal__form" data-search-modal-form>
       <label class="vh" for="modal-q">Введите марку автомобиля, артикул, название товара</label>
       <input id="modal-q" name="q" type="search" autocomplete="off" placeholder="Марка автомобиля, артикул, название товара" aria-label="Поиск по каталогу">
       <button class="btn btn--primary" type="submit">Найти</button>
     </form>
+    <div class="search-modal__results" data-search-modal-results aria-live="polite"></div>
   </div>
 </div>
-
-<!-- ================= УМНЫЙ ПОИСК ================= -->
-<section class="searchbar">
-  <div class="wrap searchbar__in">
-    <div>
-      <p class="eyebrow">Умный поиск</p>
-      <p class="small mt-8">Артикул FERES, OEM-номер, номер конкурента или название — строка распознаёт тип запроса сама.</p>
-    </div>
-    <div>
-      <form class="search" data-search role="search" action="catalog.html" method="get">
-        <svg class="search__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <label class="vh" for="q">Поиск по каталогу</label>
-        <input class="search__input" id="q" name="q" type="search" autocomplete="off" placeholder="Например: 2112-1007300-02, FR6PK1005 или «колодки тормозные»">
-        <span class="search__type" aria-live="polite"></span>
-        <button class="btn btn--primary search__go" type="submit">Найти</button>
-        <div class="suggest" role="listbox" aria-label="Подсказки поиска"></div>
-      </form>
-      <div class="chips">
-        <button class="chip" type="button" data-chip="2112-1007300-02">2112-1007300-02</button>
-        <button class="chip" type="button" data-chip="FR6PK1005">FR6PK1005</button>
-        <button class="chip" type="button" data-chip="колодки">колодки тормозные</button>
-        <button class="chip" type="button" data-chip="LADA Granta">LADA Granta</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= СЕРИИ ПРОДУКЦИИ ================= -->
 <section class="section section--ink1 section--line">
@@ -248,25 +225,21 @@
   </div>
 </section>
 
-<!-- ================= ЦИФРЫ ================= -->
+<!-- ================= ЦИФРЫ КОМПАНИИ ================= -->
 <section class="section section--tight">
   <div class="wrap">
-    <div class="grid cols-4" data-stagger>
+    <div class="grid cols-3" data-stagger>
       <div class="card lac stat reveal">
-        <span class="stat__val" data-count="833">833</span>
-        <span class="stat__label">позиции в каталоге — ассортимент расширяется каждый квартал</span>
+        <span class="stat__val" data-count="800" data-suffix="+">800+</span>
+        <span class="stat__label">товарных позиций</span>
       </div>
       <div class="card lac stat reveal">
-        <span class="stat__val" data-count="20">20</span>
-        <span class="stat__label">точек продаж в 18 городах России: опт, розница, СТО</span>
+        <span class="stat__val" data-count="250" data-suffix="+">250+</span>
+        <span class="stat__label">официальных представителей</span>
       </div>
       <div class="card lac stat reveal">
-        <span class="stat__val" data-count="6">6</span>
-        <span class="stat__label">групп продукции — от ЦПГ до фильтров и тормозной системы</span>
-      </div>
-      <div class="card lac stat reveal">
-        <span class="stat__val">2022</span>
-        <span class="stat__label">год выхода бренда FERES на рынок России и СНГ</span>
+        <span class="stat__val" data-count="20000" data-suffix="+">20 000+</span>
+        <span class="stat__label">отзывов 5*</span>
       </div>
     </div>
   </div>
@@ -413,6 +386,12 @@
         <h2 class="h2">С нами меньше риска</h2>
       </div>
       <p class="body">Профессионалы выбирают решения, которым готовы доверять. За каждой деталью стоит ответственность перед владельцем автомобиля — поэтому мы отвечаем не только за отгрузку, но и за результат ремонта.</p>
+      <div class="row mt-24">
+        <a class="btn btn--ghost sheen" href="where-to-buy.html">Где купить</a>
+        <a class="btn btn--ghost sheen" href="partners.html#form">Стать партнёром</a>
+        <a class="btn btn--ghost sheen" href="catalog.html">Новинки продукции</a>
+        <a class="btn btn--ghost sheen" href="catalog.html">Смотреть каталог</a>
+      </div>
     </div>
 
     <div class="grid cols-4" data-stagger>
@@ -443,6 +422,147 @@
         </span>
         <h3 class="h4">Мы остаёмся рядом после покупки</h3>
         <p class="small">Честная гарантия и понятный разбор рекламаций: если случай гарантийный — решаем вопрос, а не ищем повод отказать.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink1 section--line">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Производство</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Основные сильные стороны FERES</h2>
+      </div>
+    </div>
+
+    <p class="lead" style="max-width:74ch">Мы проектируем детали под реальные условия ремонта, а не под минимальную себестоимость. В производстве важны не только материалы и допуски, но и ответственность перед владельцем автомобиля: каждая партия проходит контроль качества, а ассортимент развивается под практику сервисных станций и розничных продаж.</p>
+
+    <div class="grid cols-2 mt-32" data-stagger>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18M5 5l14 14M19 5 5 19"/></svg>
+        </span>
+        <h3 class="h4">Инженерная экспертиза</h3>
+        <p class="small">Подбор материалов, геометрии и допусков ведётся под реальные режимы нагрузки и типовые неисправности в двигателях и ходовой части.</p>
+      </div>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12h10M12 7v10"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+        </span>
+        <h3 class="h4">Контроль на всех этапах</h3>
+        <p class="small">Проверка сырья, допусков, сборки и финального контроля помогает уменьшить долю возвратов и повышает предсказуемость ремонта.</p>
+      </div>
+    </div>
+
+    <div class="gallery-band mt-24">
+      <img src="assets/img/atmo/crop-pistons.jpg" alt="Производство поршней FERES" loading="lazy" width="560" height="560">
+      <img src="assets/img/atmo/crop-liners.jpg" alt="Производство гильз FERES" loading="lazy" width="560" height="560">
+      <img src="assets/img/atmo/crop-valves.jpg" alt="Фото деталей FERES" loading="lazy" width="560" height="560">
+      <img src="assets/img/atmo/crop-valves.jpg" alt="Контроль качества продукции FERES" loading="lazy" width="560" height="560">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">История FERES</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Важные даты компании</h2>
+      </div>
+    </div>
+
+    <div class="tline">
+      <div class="tline__row">
+        <span class="tline__year">1899</span>
+        <div>
+          <h3 class="h4">Начало инженерной экспертизы</h3>
+          <p class="small mt-8">Истоки подхода к производству автокомпонентов восходят к опыту и технологиям, заложенным в инженерной культуре Federal-Mogul.</p>
+        </div>
+      </div>
+      <div class="tline__row">
+        <span class="tline__year">2022</span>
+        <div>
+          <h3 class="h4">Запуск бренда FERES</h3>
+          <p class="small mt-8">Бренд выходит на рынок России и СНГ как самостоятельная производственная линия для профессионального сервиса и дилерской сети.</p>
+        </div>
+      </div>
+      <div class="tline__row">
+        <span class="tline__year">Сегодня</span>
+        <div>
+          <h3 class="h4">Сотни позиций в каталоге</h3>
+          <p class="small mt-8">Ассортимент постоянно расширяется: от цилиндропоршневой группы до тормозной системы, фильтров и расходников для массового и коммерческого транспорта.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--ink1 section--line">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">База знаний</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Советы механиков и практические решения</h2>
+        <a class="sec-link" href="knowledge.html">Все материалы
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid cols-3" data-stagger>
+      <article class="card lac post reveal">
+        <div class="post__media">
+          <img class="post__img" src="assets/img/atmo/crop-valves.jpg" alt="Советы механиков по клапанам" loading="lazy" width="560" height="560">
+        </div>
+        <div class="post__body">
+          <p class="post__cat">Советы механиков</p>
+          <h3 class="h4">Стучат гидрокомпенсаторы: что проверить до замены</h3>
+          <p class="small">Давление масла, зазоры, качество смазки и состояние постели распредвала — типичные причины возврата шума после ремонта.</p>
+          <p class="mt-8"><a class="link-arrow" href="knowledge.html">Читать</a></p>
+        </div>
+      </article>
+
+      <article class="card lac post reveal">
+        <div class="post__media">
+          <img class="post__img" src="assets/img/atmo/crop-pistons.jpg" alt="Советы механиков по поршневой группе" loading="lazy" width="560" height="560">
+        </div>
+        <div class="post__body">
+          <p class="post__cat">Подбор деталей</p>
+          <h3 class="h4">Как выбрать поршневую группу по ремонтному размеру</h3>
+          <p class="small">Номинал, ремонтные размеры, маркировка и особенности блока помогут не ошибиться с комплектом на этапе заказа.</p>
+          <p class="mt-8"><a class="link-arrow" href="knowledge.html">Читать</a></p>
+        </div>
+      </article>
+
+      <article class="card lac post reveal">
+        <div class="post__media">
+          <img class="post__img" src="assets/img/atmo/crop-liners.jpg" alt="Советы механиков по гильзам" loading="lazy" width="560" height="560">
+        </div>
+        <div class="post__body">
+          <p class="post__cat">Советы механиков</p>
+          <h3 class="h4">Замена опоры передней стойки: ошибки, из-за которых стук возвращается</h3>
+          <p class="small">Момент затяжки, положение подшипника и состояние отбойника — короткий чек-лист для СТО и частных мастерских.</p>
+          <p class="mt-8"><a class="link-arrow" href="knowledge.html">Читать</a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="card lac form-card reveal">
+      <p class="eyebrow">Приглашение к сотрудничеству</p>
+      <h2 class="h2 mt-16">Хотите строить бизнес вместе с FERES?</h2>
+      <p class="body mt-16" style="max-width:70ch">Мы рассматриваем сотрудничество с магазинами, СТО, дилерами и партнёрами в регионах. Подберём ассортимент, расскажем про условия работы, маркетинговую поддержку и документальное сопровождение.</p>
+      <div class="row mt-24">
+        <a class="btn btn--primary sheen" href="partners.html#form">Стать партнёром</a>
+        <a class="btn btn--ghost sheen" href="mailto:sales@feres.ru?subject=Сотрудничество">Написать в FERES</a>
       </div>
     </div>
   </div>
@@ -576,6 +696,8 @@
 
   <!-- Финальный экран: страница уезжает вверх и открывает его как занавес -->
   <section class="finale__stage">
+    <div class="finale__tech" aria-hidden="true"></div>
+    <div class="finale__curtain" aria-hidden="true"></div>
     <div class="finale__aurora" aria-hidden="true"></div>
     <div class="finale__marquee" aria-hidden="true">
       <div class="finale__track">
@@ -583,7 +705,6 @@
         <span>Инженерное качество <b>✦</b> Надёжность без компромиссов <b>✦</b> Выбор профессионалов <b>✦</b> Уверенность после ремонта <b>✦</b> Детали, которым доверяют профессионалы <b>✦</b></span>
       </div>
     </div>
-    <p class="finale__word" aria-hidden="true">FERES</p>
 
     <h2 class="finale__title">Начнём работать?</h2>
     <p class="finale__sub">Подберём ассортимент под ваш регион и формат бизнеса, пришлём прайс и условия. Автовладельцу — покажем, где купить деталь сегодня.</p>
@@ -606,7 +727,7 @@
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <img src="assets/img/brand/logo-block-sand.png" alt="FERES — автокомпоненты, Федерал Резерв" width="1100" height="225" style="height:44px;width:auto">
+        <div class="footer__mark" aria-hidden="true"></div>
         <p class="small mt-16">Уверенность после ремонта.<br>Детали, которым доверяют профессионалы.</p>
         <div class="soc mt-16">
           <a href="#" aria-label="Telegram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 3.4 11.5c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.2-.5-1.8-1.3-1.4Z"/></svg></a>
