@@ -394,6 +394,7 @@ h1,h2,h3,h4,p,figure{margin:0}
 @media(max-width:639px){.hero__title{font-size:32px;line-height:38px}}
 .hero__title .l2{display:block;color:var(--sand)}
 .hero__sub{max-width:56ch;font-size:clamp(16px,1.25vw,19px);color:var(--text-2);font-weight:300;line-height:1.55}
+@media(min-width:640px){.hero__sub{max-width:none;white-space:nowrap;font-size:32px;line-height:1.35}}
 .hero__ticks{margin-top:2px}
 
 /* Нижняя CTA-планка на всю ширину — три крупных действия одной строкой */
