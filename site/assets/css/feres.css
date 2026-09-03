@@ -252,7 +252,10 @@ h1,h2,h3,h4,p,figure{margin:0}
 /* Серии продукции */
 .series-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:24px}
 @media(min-width:900px){.series-grid{grid-template-columns:repeat(2,1fr)}}
-.series-card{padding:26px 24px 20px;display:flex;flex-direction:column;gap:14px;min-height:250px}
+.series-card{padding:0;display:flex;flex-direction:column;overflow:hidden;min-height:250px}
+.series-card__media{height:clamp(220px,24vw,340px);display:flex;align-items:center;justify-content:center;padding:18px 24px;background:var(--ink-3);border-bottom:1px solid var(--edge)}
+.series-card__media img{width:100%;height:100%;object-fit:contain;display:block}
+.series-card__body{display:flex;flex-direction:column;gap:14px;padding:26px 24px 20px}
 .series-card__mark{display:inline-flex;align-self:flex-start;padding:7px 12px;border:1px solid rgba(221,203,164,.5);border-radius:999px;
   color:var(--sand);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;background:rgba(221,203,164,.06)}
 .series-card__mark--platinum{color:#dfe5ea;border-color:rgba(223,229,234,.5);background:rgba(223,229,234,.05)}
