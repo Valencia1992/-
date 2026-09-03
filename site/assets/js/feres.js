@@ -9,10 +9,19 @@
 
   var heroVideo = document.querySelector('.hero__bg video');
   if (heroVideo) {
+    var startHeroVideo = function () {
+      heroVideo.muted = true;
+      heroVideo.play().catch(function () {});
+    };
     heroVideo.muted = true;
     heroVideo.playsInline = true;
     heroVideo.autoplay = true;
-    heroVideo.play().catch(function () {});
+    heroVideo.addEventListener('loadeddata', startHeroVideo, { once: true });
+    heroVideo.addEventListener('canplay', startHeroVideo, { once: true });
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && heroVideo.paused) startHeroVideo();
+    });
+    startHeroVideo();
   }
 
   /* --- Шапка: состояние при скролле ------------------------------------ */
