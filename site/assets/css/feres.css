@@ -254,9 +254,9 @@ h1,h2,h3,h4,p,figure{margin:0}
 @media(min-width:900px){.series-grid{grid-template-columns:repeat(2,1fr)}}
 .series-card{padding:0;display:flex;flex-direction:column;overflow:hidden;min-height:250px}
 .series-card__media{height:clamp(220px,24vw,340px);display:flex;align-items:center;justify-content:center;padding:18px 24px;background:var(--ink-3);border-bottom:1px solid var(--edge)}
-.series-card__media img{width:155%;height:155%;max-width:none;object-fit:contain;display:block;transform:scale(.96);animation:seriesBoxZoom 5.5s ease-in-out infinite alternate;transform-origin:center}
-@keyframes seriesBoxZoom{from{transform:scale(.96)}to{transform:scale(1.1)}}
-.series-card:hover .series-card__media img,.series-card:focus-within .series-card__media img{animation-play-state:paused;transform:scale(1.14)}
+.series-card__media img{width:220%;height:220%;max-width:none;object-fit:contain;display:block;transform:scale(.92);animation:seriesBoxZoom 5.5s ease-in-out infinite alternate;transform-origin:center}
+@keyframes seriesBoxZoom{from{transform:scale(.92)}to{transform:scale(1.3)}}
+.series-card:hover .series-card__media img,.series-card:focus-within .series-card__media img{animation-play-state:paused;transform:scale(1.42)}
 .series-card__body{display:flex;flex-direction:column;gap:14px;padding:26px 24px 20px}
 .series-card__mark{display:inline-flex;align-self:flex-start;padding:7px 12px;border:1px solid rgba(221,203,164,.5);border-radius:999px;
   color:var(--sand);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;background:rgba(221,203,164,.06)}
