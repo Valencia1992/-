@@ -246,7 +246,7 @@
 </section>
 
 <!-- ================= ПРИГЛАШЕНИЕ К СОТРУДНИЧЕСТВУ ================= -->
-<section class="section">
+<section class="section cooperation-section">
   <div class="wrap">
     <div class="card lac form-card reveal">
       <p class="eyebrow">Приглашение к сотрудничеству</p>
@@ -260,52 +260,95 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap anti-fake">
-    <div class="anti-fake__text">
-      <p class="eyebrow">Остерегайтесь подделки</p>
-      <h2 class="h2">Как проверить оригинальность продукции</h2>
-      <p class="body">Перед покупкой важно убедиться, что деталь не поддельная. FERES использует защиту на упаковке и маркировке изделия.</p>
-      <ul class="anti-fake__list">
-        <li>Проверить голограмму на упаковке</li>
-        <li>Отправить код на номер, указанный на упаковке</li>
-        <li>Проверить логотип на изделии и маркировку</li>
-      </ul>
-    </div>
-    <div class="anti-fake__card">
-      <div class="anti-fake__steps">
-        <div class="anti-fake__step">
-          <span>01</span>
-          <p>Сканируйте голограмму и проверьте упаковку.</p>
+<!-- ================= РАЗВИЛКА АУДИТОРИЙ ================= -->
+<section class="section audience-section">
+  <div class="wrap">
+    <div class="grid cols-2" data-stagger>
+      <div class="card lac fork sheen reveal">
+        <div>
+          <p class="eyebrow">Магазин · дилер · СТО</p>
+          <h2 class="h3 mt-16">Работаем с теми, кто продаёт и ремонтирует</h2>
         </div>
-        <div class="anti-fake__step">
-          <span>02</span>
-          <p>Отправьте код на номер, указанный на коробке.</p>
+        <ul class="fork__list">
+          <li>Условия опта и дилерства, защита интересов в регионе</li>
+          <li>Маркетинговая поддержка, обучение и сертификация СТО</li>
+          <li>Гарантийное сопровождение и разбор рекламаций</li>
+          <li>Личный кабинет: заказы, прайс, документы, материалы</li>
+        </ul>
+        <div class="row">
+          <a class="btn btn--primary" href="partners.html#form">Стать партнёром</a>
+          <a class="link-arrow" href="partners.html">Условия работы</a>
         </div>
-        <div class="anti-fake__step">
-          <span>03</span>
-          <p>Проверьте логотип и нанесение на самой детали.</p>
+      </div>
+
+      <div class="card lac fork sheen reveal">
+        <div>
+          <p class="eyebrow">Владельцам автомобилей</p>
+          <h2 class="h3 mt-16">Нужна деталь — подскажем, где взять</h2>
+        </div>
+        <ul class="fork__list">
+          <li>20 точек продаж в 18 городах: опт, розница, СТО</li>
+          <li>Официальные магазины бренда на <a class="txt-sand" href="where-to-buy.html#marketplaces">Ozon, Wildberries и Яндекс Маркете</a></li>
+          <li>Подбор по автомобилю, артикулу и OEM-номеру</li>
+          <li>Инструкции и разборы типичных неисправностей</li>
+        </ul>
+        <div class="row">
+          <a class="btn btn--ghost" href="where-to-buy.html">Где купить</a>
+          <a class="link-arrow" href="catalog.html#by-car">Подобрать по авто</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= ЦИФРЫ КОМПАНИИ ================= -->
-<section class="section section--tight">
+<section class="section">
   <div class="wrap">
-    <div class="grid cols-3" data-stagger>
-      <div class="card lac stat reveal">
-        <span class="stat__val" data-count="800" data-suffix="+">800+</span>
-        <span class="stat__label">товарных позиций</span>
+    <div class="sec-head">
+      <p class="eyebrow">История FERES</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Важные даты компании</h2>
       </div>
-      <div class="card lac stat reveal">
-        <span class="stat__val" data-count="250" data-suffix="+">250+</span>
-        <span class="stat__label">официальных представителей</span>
+    </div>
+
+    <div class="timeline-rail" data-timeline-rail>
+      <div class="timeline-rail__line" aria-hidden="true"></div>
+      <div class="timeline-rail__line--active" aria-hidden="true" style="width:0%"></div>
+      <ol class="timeline-rail__dots" role="list">
+        <li role="listitem">
+          <div class="timeline-rail__dot is-active" data-timeline-dot="0">
+            <span class="timeline-rail__label">Начало</span>
+            <span class="timeline-rail__caption">1899</span>
+          </div>
+        </li>
+        <li role="listitem">
+          <div class="timeline-rail__dot is-active" data-timeline-dot="1">
+            <span class="timeline-rail__label">Запуск</span>
+            <span class="timeline-rail__caption">2022</span>
+          </div>
+        </li>
+        <li role="listitem">
+          <div class="timeline-rail__dot" data-timeline-dot="2">
+            <span class="timeline-rail__label">Сегодня</span>
+            <span class="timeline-rail__caption">Сейчас</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Descriptions that appear below the timeline -->
+    <div class="timeline-descriptions mt-32" style="display:grid;gap:32px;grid-template-columns:1fr">
+      <div class="timeline-desc reveal" data-timeline-content="0">
+        <h3 class="h4">Начало инженерной экспертизы</h3>
+        <p class="small mt-8">Истоки подхода к производству автокомпонентов восходят к опыту и технологиям, заложенным в инженерной культуре Federal-Mogul.</p>
       </div>
-      <div class="card lac stat reveal">
-        <span class="stat__val" data-count="20000" data-suffix="+">20 000+</span>
-        <span class="stat__label">отзывов 5*</span>
+      <div class="timeline-desc reveal" data-timeline-content="1" style="display:none">
+        <h3 class="h4">Запуск бренда FERES</h3>
+        <p class="small mt-8">Бренд выходит на рынок России и СНГ как самостоятельная производственная линия для профессионального сервиса и дилерской сети.</p>
+      </div>
+      <div class="timeline-desc reveal" data-timeline-content="2" style="display:none">
+        <h3 class="h4">Сотни позиций в каталоге</h3>
+        <p class="small mt-8">Ассортимент постоянно расширяется: от цилиндропоршневой группы до тормозной системы, фильтров и расходников для массового и коммерческого транспорта.</p>
       </div>
     </div>
   </div>
@@ -481,42 +524,6 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">История FERES</p>
-      <div class="scale" aria-hidden="true"></div>
-      <div class="sec-head__top">
-        <h2 class="h2">Важные даты компании</h2>
-      </div>
-    </div>
-
-    <div class="tline">
-      <div class="tline__row">
-        <span class="tline__year">1899</span>
-        <div>
-          <h3 class="h4">Начало инженерной экспертизы</h3>
-          <p class="small mt-8">Истоки подхода к производству автокомпонентов восходят к опыту и технологиям, заложенным в инженерной культуре Federal-Mogul.</p>
-        </div>
-      </div>
-      <div class="tline__row">
-        <span class="tline__year">2022</span>
-        <div>
-          <h3 class="h4">Запуск бренда FERES</h3>
-          <p class="small mt-8">Бренд выходит на рынок России и СНГ как самостоятельная производственная линия для профессионального сервиса и дилерской сети.</p>
-        </div>
-      </div>
-      <div class="tline__row">
-        <span class="tline__year">Сегодня</span>
-        <div>
-          <h3 class="h4">Сотни позиций в каталоге</h3>
-          <p class="small mt-8">Ассортимент постоянно расширяется: от цилиндропоршневой группы до тормозной системы, фильтров и расходников для массового и коммерческого транспорта.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section section--ink1 section--line">
   <div class="wrap">
     <div class="sec-head">
@@ -566,47 +573,6 @@
           <p class="mt-8"><a class="link-arrow" href="knowledge.html">Читать</a></p>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= РАЗВИЛКА АУДИТОРИЙ ================= -->
-<section class="section">
-  <div class="wrap">
-    <div class="grid cols-2" data-stagger>
-      <div class="card lac fork sheen reveal">
-        <div>
-          <p class="eyebrow">Магазин · дилер · СТО</p>
-          <h2 class="h3 mt-16">Работаем с теми, кто продаёт и ремонтирует</h2>
-        </div>
-        <ul class="fork__list">
-          <li>Условия опта и дилерства, защита интересов в регионе</li>
-          <li>Маркетинговая поддержка, обучение и сертификация СТО</li>
-          <li>Гарантийное сопровождение и разбор рекламаций</li>
-          <li>Личный кабинет: заказы, прайс, документы, материалы</li>
-        </ul>
-        <div class="row">
-          <a class="btn btn--primary" href="partners.html#form">Стать партнёром</a>
-          <a class="link-arrow" href="partners.html">Условия работы</a>
-        </div>
-      </div>
-
-      <div class="card lac fork sheen reveal">
-        <div>
-          <p class="eyebrow">Владельцам автомобилей</p>
-          <h2 class="h3 mt-16">Нужна деталь — подскажем, где взять</h2>
-        </div>
-        <ul class="fork__list">
-          <li>20 точек продаж в 18 городах: опт, розница, СТО</li>
-          <li>Официальные магазины бренда на <a class="txt-sand" href="where-to-buy.html#marketplaces">Ozon, Wildberries и Яндекс Маркете</a></li>
-          <li>Подбор по автомобилю, артикулу и OEM-номеру</li>
-          <li>Инструкции и разборы типичных неисправностей</li>
-        </ul>
-        <div class="row">
-          <a class="btn btn--ghost" href="where-to-buy.html">Где купить</a>
-          <a class="link-arrow" href="catalog.html#by-car">Подобрать по авто</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>

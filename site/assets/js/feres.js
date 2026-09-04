@@ -474,4 +474,46 @@
       sync();
     });
   });
+
+  /* --- Timeline Rail: интерактивная шкала времени ----------------------- */
+  var timelineRail = document.querySelector('[data-timeline-rail]');
+  if (timelineRail) {
+    var dots = timelineRail.querySelectorAll('[data-timeline-dot]');
+    var activeLine = timelineRail.querySelector('.timeline-rail__line--active');
+    var descriptions = document.querySelectorAll('[data-timeline-content]');
+    var dotsContainer = timelineRail.querySelector('.timeline-rail__dots');
+
+    var updateTimeline = function (index) {
+      // Обновляем активное состояние точек
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i <= index);
+      });
+
+      // Обновляем ширину активной линии
+      if (activeLine && dotsContainer) {
+        var containerWidth = dotsContainer.offsetWidth;
+        var activeWidth = index === 0 ? 0 : (index / (dots.length - 1)) * 100;
+        activeLine.style.width = activeWidth + '%';
+      }
+
+      // Показываем нужное описание
+      descriptions.forEach(function (desc) {
+        desc.style.display = 'none';
+      });
+      if (descriptions[index]) {
+        descriptions[index].style.display = 'block';
+      }
+    };
+
+    // Обработчик клика на точки
+    dots.forEach(function (dot, index) {
+      dot.style.cursor = 'pointer';
+      dot.addEventListener('click', function () {
+        updateTimeline(index);
+      });
+    });
+
+    // Инициализируем первый элемент
+    updateTimeline(0);
+  }
 })();
