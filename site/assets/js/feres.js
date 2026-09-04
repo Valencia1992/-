@@ -7,6 +7,80 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* Интерактивная модель поршня и шатуна загружается только на главной. */
+  var modelCanvas = document.querySelector('[data-engine-model]');
+  if (modelCanvas) {
+    import('https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js').then(function (THREE) {
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(34, 1, .1, 100);
+      camera.position.set(0, 1.2, 7.5);
+      var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      var assembly = new THREE.Group();
+      scene.add(assembly);
+      scene.add(new THREE.HemisphereLight(0xfff4d8, 0x10151a, 2.2));
+      var key = new THREE.DirectionalLight(0xffe7ad, 3.4);
+      key.position.set(4, 6, 5);
+      scene.add(key);
+      var rim = new THREE.DirectionalLight(0x6d8fa8, 2.2);
+      rim.position.set(-4, 2, -5);
+      scene.add(rim);
+      var metal = new THREE.MeshStandardMaterial({ color: 0xb9bec1, metalness: .86, roughness: .24 });
+      var darkMetal = new THREE.MeshStandardMaterial({ color: 0x20252a, metalness: .8, roughness: .3 });
+      var brass = new THREE.MeshStandardMaterial({ color: 0xd1b36e, metalness: .72, roughness: .28 });
+      var piston = new THREE.Group();
+      var crown = new THREE.Mesh(new THREE.CylinderGeometry(1.08, 1.14, .34, 64), metal);
+      crown.position.y = 1.14;
+      piston.add(crown);
+      var skirt = new THREE.Mesh(new THREE.CylinderGeometry(1.02, 1.08, 1.25, 64), metal);
+      skirt.position.y = .36;
+      piston.add(skirt);
+      [1.01, .87, .73].forEach(function (y) {
+        var ring = new THREE.Mesh(new THREE.TorusGeometry(1.08, .045, 12, 64), darkMetal);
+        ring.rotation.x = Math.PI / 2;
+        ring.position.y = y;
+        piston.add(ring);
+      });
+      var pin = new THREE.Mesh(new THREE.CylinderGeometry(.19, .19, 2.05, 32), brass);
+      pin.rotation.z = Math.PI / 2;
+      pin.position.y = .15;
+      piston.add(pin);
+      assembly.add(piston);
+      var rod = new THREE.Group();
+      var rodShaft = new THREE.Mesh(new THREE.BoxGeometry(.28, 2.7, .22), brass);
+      rodShaft.position.y = -1.3;
+      rod.add(rodShaft);
+      var rodTop = new THREE.Mesh(new THREE.TorusGeometry(.35, .13, 16, 32), brass);
+      rodTop.rotation.x = Math.PI / 2;
+      rodTop.position.y = .05;
+      rod.add(rodTop);
+      var rodBottom = new THREE.Mesh(new THREE.TorusGeometry(.52, .16, 16, 32), darkMetal);
+      rodBottom.rotation.x = Math.PI / 2;
+      rodBottom.position.y = -2.58;
+      rod.add(rodBottom);
+      assembly.add(rod);
+      var crank = new THREE.Group();
+      var crankDisk = new THREE.Mesh(new THREE.CylinderGeometry(.7, .7, .18, 48), darkMetal);
+      crankDisk.rotation.x = Math.PI / 2;
+      crankDisk.position.y = -2.58;
+      crank.add(crankDisk);
+      assembly.add(crank);
+      assembly.rotation.x = -.12;
+      var targetX = 0, targetY = 0, downX = 0, downY = 0, dragging = false;
+      modelCanvas.addEventListener('pointerdown', function (event) { dragging = true; downX = event.clientX; downY = event.clientY; modelCanvas.setPointerCapture(event.pointerId); });
+      modelCanvas.addEventListener('pointermove', function (event) { if (!dragging) return; targetY += (event.clientX - downX) * .012; targetX += (event.clientY - downY) * .008; downX = event.clientX; downY = event.clientY; });
+      modelCanvas.addEventListener('pointerup', function () { dragging = false; });
+      modelCanvas.addEventListener('pointercancel', function () { dragging = false; });
+      var resize = function () { var box = modelCanvas.getBoundingClientRect(); renderer.setSize(box.width, box.height, false); camera.aspect = box.width / box.height; camera.updateProjectionMatrix(); };
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+      var clock = new THREE.Clock();
+      var animate = function () { requestAnimationFrame(animate); var t = clock.getElapsedTime(); var cycle = Math.sin(t * 2.2); piston.position.y = cycle * .38; rod.rotation.z = cycle * .13; crank.rotation.z = t * 2.2; if (!dragging) targetY += .0025; assembly.rotation.y += (targetY - assembly.rotation.y) * .08; assembly.rotation.x += (targetX - assembly.rotation.x) * .08; renderer.render(scene, camera); };
+      animate();
+    }).catch(function () { modelCanvas.setAttribute('data-model-error', 'true'); });
+  }
+
   var heroVideo = document.querySelector('.hero__bg video');
   if (heroVideo) {
     var startHeroVideo = function () {
