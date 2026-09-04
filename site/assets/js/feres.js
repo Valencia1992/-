@@ -13,7 +13,7 @@
     import('https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js').then(function (THREE) {
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(34, 1, .1, 100);
-      camera.position.set(0, 1.2, 7.5);
+      camera.position.set(0, 1.2, 5.3);
       var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -66,6 +66,7 @@
       crankDisk.position.y = -2.58;
       crank.add(crankDisk);
       assembly.add(crank);
+      assembly.scale.setScalar(1.2);
       assembly.rotation.x = -.12;
       var targetX = 0, targetY = 0, downX = 0, downY = 0, dragging = false;
       modelCanvas.addEventListener('pointerdown', function (event) { dragging = true; downX = event.clientX; downY = event.clientY; modelCanvas.setPointerCapture(event.pointerId); });
