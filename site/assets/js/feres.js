@@ -7,10 +7,16 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Интерактивная 3D модель шатуна */
+  /* Интерактивная 3D модель шатуна - загрузка GLB модели */
   var modelCanvas = document.querySelector('[data-engine-model]');
   if (modelCanvas) {
-    import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js').then(function (THREE) {
+    Promise.all([
+      import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js'),
+      import('https://cdn.jsdelivr.net/npm/three@r128/examples/jsm/loaders/GLTFLoader.js')
+    ]).then(function (mods) {
+      var THREE = mods[0];
+      var GLTFLoader = mods[1].GLTFLoader;
+
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
       var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
@@ -18,62 +24,82 @@
       renderer.setClearColor(0x000000, 0);
 
       // Освещение
-      scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-      var light1 = new THREE.DirectionalLight(0xffffff, 1.2);
-      light1.position.set(5, 10, 7);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+      var light1 = new THREE.DirectionalLight(0xffffff, 1.3);
+      light1.position.set(10, 15, 10);
+      light1.castShadow = true;
       scene.add(light1);
-      var light2 = new THREE.DirectionalLight(0xffffff, 0.6);
-      light2.position.set(-5, -3, -5);
+      var light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      light2.position.set(-10, -5, -10);
       scene.add(light2);
 
       // Группа для вращения
       var group = new THREE.Group();
       scene.add(group);
 
-      // Материалы
-      var metalMat = new THREE.MeshStandardMaterial({ color: 0x999999, metalness: 0.85, roughness: 0.15 });
-      var darkMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.8, roughness: 0.25 });
-      var goldMat = new THREE.MeshStandardMaterial({ color: 0xccaa44, metalness: 0.75, roughness: 0.2 });
+      // Загрузчик GLB
+      var loader = new GLTFLoader();
+      loader.load('assets/models/model.glb',
+        function (gltf) {
+          // Успешная загрузка модели
+          var model = gltf.scene;
 
-      // Построение шатуна
-      var rod = new THREE.Group();
+          // Вычисляем bounding box для масштабирования
+          var box = new THREE.Box3().setFromObject(model);
+          var size = box.getSize(new THREE.Vector3());
+          var maxDim = Math.max(size.x, size.y, size.z);
+          var targetSize = 3;
+          var scale = targetSize / maxDim;
 
-      // Стержень (вал)
-      var shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 3.2, 24), metalMat);
-      shaft.rotation.z = Math.PI / 2;
-      rod.add(shaft);
+          model.scale.multiplyScalar(scale);
 
-      // Верхняя головка (большая)
-      var topBearing = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.15, 16, 32), goldMat);
-      topBearing.position.y = 1.6;
-      topBearing.rotation.y = Math.PI / 2;
-      rod.add(topBearing);
+          // Центрируем модель
+          var center = box.getCenter(new THREE.Vector3());
+          model.position.x -= center.x * scale;
+          model.position.y -= center.y * scale;
+          model.position.z -= center.z * scale;
 
-      var topBearingInner = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.08, 12, 24), darkMat);
-      topBearingInner.position.y = 1.6;
-      topBearingInner.rotation.y = Math.PI / 2;
-      rod.add(topBearingInner);
+          group.add(model);
 
-      // Нижняя головка (меньше)
-      var botBearing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.18, 16, 32), metalMat);
-      botBearing.position.y = -1.6;
-      botBearing.rotation.y = Math.PI / 2;
-      rod.add(botBearing);
+          // Устанавливаем позицию камеры
+          camera.position.set(0, 0, 4);
+          camera.lookAt(0, 0, 0);
+        },
+        // Progress callback
+        function (xhr) {
+          var percentComplete = (xhr.loaded / xhr.total * 100);
+          console.log('Загрузка модели: ' + percentComplete + '%');
+        },
+        // Error callback
+        function (error) {
+          console.error('Ошибка загрузки модели:', error);
+          // Fallback - создаём простую процедурную модель
+          createFallbackModel(group, THREE);
+        }
+      );
 
-      var botBearingInner = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.09, 12, 24), darkMat);
-      botBearingInner.position.y = -1.6;
-      botBearingInner.rotation.y = Math.PI / 2;
-      rod.add(botBearingInner);
+      function createFallbackModel(parentGroup, THREE) {
+        var metalMat = new THREE.MeshStandardMaterial({ color: 0x999999, metalness: 0.85, roughness: 0.15 });
+        var darkMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.8, roughness: 0.25 });
+        var goldMat = new THREE.MeshStandardMaterial({ color: 0xccaa44, metalness: 0.75, roughness: 0.2 });
 
-      // Детали жесткости
-      for (var i = 0; i < 2; i++) {
-        var reinforcement = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.8, 0.15), metalMat);
-        reinforcement.position.set(i === 0 ? 0.25 : -0.25, 0, 0);
-        rod.add(reinforcement);
+        var rod = new THREE.Group();
+        var shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 3.2, 24), metalMat);
+        shaft.rotation.z = Math.PI / 2;
+        rod.add(shaft);
+
+        var topBearing = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.15, 16, 32), goldMat);
+        topBearing.position.y = 1.6;
+        topBearing.rotation.y = Math.PI / 2;
+        rod.add(topBearing);
+
+        var botBearing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.18, 16, 32), metalMat);
+        botBearing.position.y = -1.6;
+        botBearing.rotation.y = Math.PI / 2;
+        rod.add(botBearing);
+
+        parentGroup.add(rod);
       }
-
-      group.add(rod);
-      camera.position.z = 4;
 
       // Управление мышью
       var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
@@ -117,7 +143,7 @@
       };
       animate();
     }).catch(function (err) {
-      console.error('Ошибка Three.js:', err);
+      console.error('Ошибка загрузки Three.js:', err);
     });
   }
 
