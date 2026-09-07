@@ -15,7 +15,10 @@
       import('https://unpkg.com/three@0.152.0/examples/jsm/loaders/GLTFLoader.js')
     ]).then(function (mods) {
       var THREE = mods[0];
-      var GLTFLoader = mods[1].GLTFLoader;
+      var GLTFLoaderClass = mods[1].GLTFLoader;
+
+      console.log('Three.js загружен:', THREE);
+      console.log('GLTFLoader загружен:', GLTFLoaderClass);
 
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
@@ -38,7 +41,8 @@
       scene.add(group);
 
       // Загрузчик GLB
-      var loader = new GLTFLoader();
+      var loader = new GLTFLoaderClass();
+      console.log('Попытка загрузить модель: assets/models/model.glb');
       loader.load('assets/models/model.glb',
         function (gltf) {
           // Успешная загрузка модели
