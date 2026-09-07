@@ -11,8 +11,8 @@
   var modelCanvas = document.querySelector('[data-engine-model]');
   if (modelCanvas) {
     Promise.all([
-      import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js'),
-      import('https://cdn.jsdelivr.net/npm/three@r128/examples/jsm/loaders/GLTFLoader.js')
+      import('https://unpkg.com/three@0.152.0/build/three.module.js'),
+      import('https://unpkg.com/three@0.152.0/examples/jsm/loaders/GLTFLoader.js')
     ]).then(function (mods) {
       var THREE = mods[0];
       var GLTFLoader = mods[1].GLTFLoader;
