@@ -1,0 +1,19 @@
+# Large files and directories
+! Маркетинг/
+Фирменный стиль FERES*
+Видео/
+Для баннера/
+ТЗ.txt
+*.tif
+*.ai
+*.pdf
+*.rar
+*.mp4
+*.mov
+*.psd
+*.eps
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
