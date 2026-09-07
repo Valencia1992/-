@@ -7,11 +7,103 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* 3D модель шатуна загружается с помощью model-viewer */
-  var modelViewer = document.querySelector('model-viewer');
-  if (modelViewer) {
-    modelViewer.addEventListener('load', function () {
-      // Модель успешно загружена
+  /* Интерактивная 3D модель шатуна */
+  var modelCanvas = document.querySelector('[data-engine-model]');
+  if (modelCanvas && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js').then(function (module) {
+      var THREE = module.default || module;
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
+      var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
+
+      // Освещение
+      scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+      var light1 = new THREE.DirectionalLight(0xffffff, 1.2);
+      light1.position.set(5, 10, 7);
+      scene.add(light1);
+      var light2 = new THREE.DirectionalLight(0xffffff, 0.6);
+      light2.position.set(-5, -3, -5);
+      scene.add(light2);
+
+      // Группа для вращения
+      var group = new THREE.Group();
+      scene.add(group);
+
+      // Материалы
+      var metalMaterial = new THREE.MeshStandardMaterial({ color: 0x888888, metalness: 0.8, roughness: 0.2 });
+      var darkMaterial = new THREE.MeshStandardMaterial({ color: 0x333333, metalness: 0.7, roughness: 0.3 });
+
+      // Шатун - упрощённая версия
+      var rodShape = new THREE.Group();
+
+      // Основной стержень
+      var shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.15, 3, 16), metalMaterial);
+      shaft.position.y = 0;
+      shaft.rotation.z = Math.PI / 2;
+      rodShape.add(shaft);
+
+      // Верхняя головка
+      var topHead = new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.12, 8, 16), metalMaterial);
+      topHead.position.y = 1.5;
+      topHead.rotation.y = Math.PI / 2;
+      rodShape.add(topHead);
+
+      // Нижняя головка
+      var bottomHead = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.15, 8, 16), darkMaterial);
+      bottomHead.position.y = -1.5;
+      bottomHead.rotation.y = Math.PI / 2;
+      rodShape.add(bottomHead);
+
+      group.add(rodShape);
+
+      // Камера
+      camera.position.z = 3.5;
+
+      // Управление мышью
+      var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+      var isDragging = false;
+
+      modelCanvas.addEventListener('pointerdown', function () { isDragging = true; });
+      modelCanvas.addEventListener('pointermove', function (e) {
+        if (!isDragging) return;
+        targetX += e.movementY * 0.005;
+        targetY += e.movementX * 0.005;
+      });
+      modelCanvas.addEventListener('pointerup', function () { isDragging = false; });
+      modelCanvas.addEventListener('pointerleave', function () { isDragging = false; });
+
+      // Изменение размера
+      var onResize = function () {
+        var rect = modelCanvas.getBoundingClientRect();
+        var w = rect.width, h = rect.height;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      };
+      window.addEventListener('resize', onResize, { passive: true });
+      onResize();
+
+      // Анимация
+      var animate = function () {
+        requestAnimationFrame(animate);
+
+        if (!isDragging) {
+          targetY += 0.002;
+        }
+
+        mouseX += (targetX - mouseX) * 0.1;
+        mouseY += (targetY - mouseY) * 0.1;
+
+        group.rotation.x = mouseX;
+        group.rotation.y = mouseY;
+
+        renderer.render(scene, camera);
+      };
+      animate();
+    }).catch(function (err) {
+      console.error('Ошибка загрузки Three.js:', err);
     });
   }
 
