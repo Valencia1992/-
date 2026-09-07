@@ -26,19 +26,23 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
 
-      // Освещение
-      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-      var light1 = new THREE.DirectionalLight(0xffffff, 1.3);
+      // Освещение - яркое освещение для видимости модели
+      scene.add(new THREE.AmbientLight(0xffffff, 1.5));
+      var light1 = new THREE.DirectionalLight(0xffffff, 2.0);
       light1.position.set(10, 15, 10);
       light1.castShadow = true;
       scene.add(light1);
-      var light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      var light2 = new THREE.DirectionalLight(0xffffff, 0.8);
       light2.position.set(-10, -5, -10);
       scene.add(light2);
 
       // Группа для вращения
       var group = new THREE.Group();
       scene.add(group);
+
+      // AnimationMixer для анимаций модели
+      var mixer = null;
+      var clock = new THREE.Clock();
 
       // Загрузчик GLB
       var loader = new GLTFLoaderClass();
@@ -52,23 +56,35 @@
           // Вычисляем bounding box для масштабирования
           var box = new THREE.Box3().setFromObject(model);
           var size = box.getSize(new THREE.Vector3());
+          var center = box.getCenter(new THREE.Vector3());
           var maxDim = Math.max(size.x, size.y, size.z);
-          var targetSize = 3;
-          var scale = targetSize / maxDim;
 
+          // Автоматическое масштабирование
+          var targetSize = 2.5;
+          var scale = targetSize / maxDim;
           model.scale.multiplyScalar(scale);
 
           // Центрируем модель
-          var center = box.getCenter(new THREE.Vector3());
-          model.position.x -= center.x * scale;
-          model.position.y -= center.y * scale;
-          model.position.z -= center.z * scale;
-
+          model.position.sub(center.multiplyScalar(scale));
           group.add(model);
 
-          // Устанавливаем позицию камеры
-          camera.position.set(0, 0, 4);
-          camera.lookAt(0, 0, 0);
+          // Автоматический фокус камеры
+          var fov = camera.fov * (Math.PI / 180);
+          var cameraZ = Math.abs(targetSize / 2 / Math.tan(fov / 2)) * 1.5;
+          camera.position.set(0, 0, cameraZ);
+          camera.lookAt(group.position);
+          console.log('📷 Камера сфокусирована на модель');
+
+          // Запуск анимации если она есть
+          if (gltf.animations && gltf.animations.length > 0) {
+            mixer = new THREE.AnimationMixer(model);
+            var clip = gltf.animations[0];
+            var action = mixer.clipAction(clip);
+            action.play();
+            console.log('🎬 Анимация запущена:', clip.name);
+          } else {
+            console.log('ℹ️ Анимация не найдена в модели');
+          }
         },
         // Progress callback
         function (xhr) {
@@ -143,6 +159,11 @@
 
         group.rotation.x = mouseX;
         group.rotation.y = mouseY;
+
+        // Обновляем анимацию если она есть
+        if (mixer) {
+          mixer.update(clock.getDelta());
+        }
 
         renderer.render(scene, camera);
       };
