@@ -12,13 +12,16 @@
   if (modelCanvas) {
     Promise.all([
       import('three'),
-      import('three/addons/loaders/GLTFLoader.js')
+      import('three/addons/loaders/GLTFLoader.js'),
+      import('three/addons/loaders/DRACOLoader.js')
     ]).then(function (mods) {
       var THREE = mods[0];
       var GLTFLoaderClass = mods[1].GLTFLoader;
+      var DRACOLoaderClass = mods[2].DRACOLoader;
 
       console.log('✅ Three.js загружен:', THREE);
       console.log('✅ GLTFLoader загружен:', GLTFLoaderClass);
+      console.log('✅ DRACOLoader загружен:', DRACOLoaderClass);
 
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
@@ -44,9 +47,16 @@
       var mixer = null;
       var clock = new THREE.Clock();
 
-      // Загрузчик GLB
+      // Загрузчик GLB с поддержкой DRACO
       var loader = new GLTFLoaderClass();
+
+      // Инициализируем DRACO для сжатых моделей
+      var dracoLoader = new DRACOLoaderClass();
+      dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
+      loader.setDRACOLoader(dracoLoader);
+
       console.log('📦 Попытка загрузить модель: assets/models/model.glb');
+      console.log('🔧 DRACO декодер готов к загрузке сжатых моделей');
       loader.load('assets/models/model.glb',
         function (gltf) {
           // Успешная загрузка модели
