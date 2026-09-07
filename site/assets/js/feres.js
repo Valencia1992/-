@@ -11,14 +11,14 @@
   var modelCanvas = document.querySelector('[data-engine-model]');
   if (modelCanvas) {
     Promise.all([
-      import('https://unpkg.com/three@0.152.0/build/three.module.js'),
-      import('https://unpkg.com/three@0.152.0/examples/jsm/loaders/GLTFLoader.js')
+      import('three'),
+      import('three/addons/loaders/GLTFLoader.js')
     ]).then(function (mods) {
       var THREE = mods[0];
       var GLTFLoaderClass = mods[1].GLTFLoader;
 
-      console.log('Three.js загружен:', THREE);
-      console.log('GLTFLoader загружен:', GLTFLoaderClass);
+      console.log('✅ Three.js загружен:', THREE);
+      console.log('✅ GLTFLoader загружен:', GLTFLoaderClass);
 
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
@@ -42,10 +42,11 @@
 
       // Загрузчик GLB
       var loader = new GLTFLoaderClass();
-      console.log('Попытка загрузить модель: assets/models/model.glb');
+      console.log('📦 Попытка загрузить модель: assets/models/model.glb');
       loader.load('assets/models/model.glb',
         function (gltf) {
           // Успешная загрузка модели
+          console.log('✅ Модель успешно загружена!', gltf);
           var model = gltf.scene;
 
           // Вычисляем bounding box для масштабирования
