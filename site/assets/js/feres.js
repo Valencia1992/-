@@ -7,57 +7,12 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Интерактивная 3D модель шатуна загружается только на главной. */
-  var modelCanvas = document.querySelector('[data-engine-model]');
-  if (modelCanvas) {
-    Promise.all([
-      import('https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js'),
-      import('https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/loaders/GLTFLoader.js')
-    ]).then(function (modules) {
-      var THREE = modules[0];
-      var GLTFLoader = modules[1].GLTFLoader;
-      var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera(50, 1, .1, 1000);
-      camera.position.set(0, 0, 2);
-      var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      scene.add(new THREE.HemisphereLight(0xfff4d8, 0x10151a, 2));
-      var key = new THREE.DirectionalLight(0xffe7ad, 3);
-      key.position.set(4, 6, 5);
-      scene.add(key);
-      var rim = new THREE.DirectionalLight(0x6d8fa8, 2);
-      rim.position.set(-4, 2, -5);
-      scene.add(rim);
-      var model = new THREE.Group();
-      scene.add(model);
-      var loader = new GLTFLoader();
-      loader.load('assets/models/connecting-rod.glb', function (gltf) {
-        var mesh = gltf.scene;
-        mesh.scale.set(1, 1, 1);
-        model.add(mesh);
-        var box = new THREE.Box3().setFromObject(model);
-        var center = box.getCenter(new THREE.Vector3());
-        model.position.sub(center);
-        var size = box.getSize(new THREE.Vector3());
-        var maxDim = Math.max(size.x, size.y, size.z);
-        var fov = camera.fov * (Math.PI / 180);
-        var cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.2;
-        camera.position.z = cameraZ;
-        camera.updateProjectionMatrix();
-      }, function () {}, function () { modelCanvas.setAttribute('data-model-error', 'true'); });
-      var targetX = 0, targetY = 0, downX = 0, downY = 0, dragging = false;
-      modelCanvas.addEventListener('pointerdown', function (event) { dragging = true; downX = event.clientX; downY = event.clientY; modelCanvas.setPointerCapture(event.pointerId); });
-      modelCanvas.addEventListener('pointermove', function (event) { if (!dragging) return; targetY += (event.clientX - downX) * .012; targetX += (event.clientY - downY) * .008; downX = event.clientX; downY = event.clientY; });
-      modelCanvas.addEventListener('pointerup', function () { dragging = false; });
-      modelCanvas.addEventListener('pointercancel', function () { dragging = false; });
-      var resize = function () { var box = modelCanvas.getBoundingClientRect(); renderer.setSize(box.width, box.height, false); camera.aspect = box.width / box.height; camera.updateProjectionMatrix(); };
-      window.addEventListener('resize', resize, { passive: true });
-      resize();
-      var clock = new THREE.Clock();
-      var animate = function () { requestAnimationFrame(animate); if (!dragging) targetY += .0015; model.rotation.y += (targetY - model.rotation.y) * .08; model.rotation.x += (targetX - model.rotation.x) * .08; renderer.render(scene, camera); };
-      animate();
-    }).catch(function () { modelCanvas.setAttribute('data-model-error', 'true'); });
+  /* 3D модель шатуна загружается с помощью model-viewer */
+  var modelViewer = document.querySelector('model-viewer');
+  if (modelViewer) {
+    modelViewer.addEventListener('load', function () {
+      // Модель успешно загружена
+    });
   }
 
   var heroVideo = document.querySelector('.hero__bg video');
