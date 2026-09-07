@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon" href="assets/img/brand/favicon-180.png">
 <link rel="preload" href="assets/fonts/feres-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/feres-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/feres.css?v=5">
+<link rel="stylesheet" href="assets/css/feres.css?v=6">
 <script type="importmap">
 {
   "imports": {
@@ -222,43 +222,62 @@
       <p class="eyebrow">Каталог</p>
       <div class="scale" aria-hidden="true"></div>
       <div class="sec-head__top">
-        <h2 class="h2">Шесть групп продукции</h2>
-        <a class="sec-link" href="catalog.html">Все способы поиска
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <h2 class="h2">Каталог автозапчастей</h2>
       </div>
     </div>
+    <p class="body mt-24" style="max-width:80ch;margin-bottom:48px">В ассортименте FERES представлено более 800 наименований продукции – автозапчасти для легкового, грузового и коммерческого транспорта.</p>
 
-    <div class="grid cols-3" data-stagger>
-      <a class="card lac cat reveal" href="catalog.html?group=dvigatel">
-        <img class="cat__img" src="assets/img/products/piston-group.webp" alt="" loading="lazy" width="1000" height="523">
-        <h3 class="cat__name">Двигатель<br>и ЦПГ</h3>
-        <p class="cat__count">Поршни · гильзы · кольца · шатуны</p>
+    <div class="grid cols-5" data-stagger>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">ЦПГ: поршни, шатуны, кольца</h3>
       </a>
-      <a class="card lac cat reveal" href="catalog.html?group=tormoza">
-        <img class="cat__img" src="assets/img/products/brake-disc.webp" alt="" loading="lazy" width="1000" height="603">
-        <h3 class="cat__name">Тормозная система</h3>
-        <p class="cat__count">Диски · колодки · цилиндры</p>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Двигатель: клапана, гидрокомпенсаторы, ГРМ</h3>
       </a>
-      <a class="card lac cat reveal" href="catalog.html?group=transmissiya">
-        <img class="cat__img" src="assets/img/products/cv-joint.webp" alt="" loading="lazy" width="678" height="584">
-        <h3 class="cat__name">Трансмиссия</h3>
-        <p class="cat__count">Сцепление · ШРУСы · приводы</p>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Подвеска: шаровая опора, стойки, амортизаторы</h3>
       </a>
-      <a class="card lac cat reveal" href="catalog.html?group=podveska">
-        <img class="cat__img" src="assets/img/products/strut-mount.webp" alt="" loading="lazy" width="873" height="726">
-        <h3 class="cat__name">Подвеска<br>и рулевое</h3>
-        <p class="cat__count">Опоры · сайлентблоки · шаровые</p>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Тормозная система: диски, колодки, цилиндры</h3>
       </a>
-      <a class="card lac cat reveal" href="catalog.html?group=pitanie">
-        <img class="cat__img" src="assets/img/products/belt.webp" alt="" loading="lazy" width="1000" height="776">
-        <h3 class="cat__name">Питание, зажигание, охлаждение</h3>
-        <p class="cat__count">Ремни · насосы · свечи</p>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Прокладки</h3>
       </a>
-      <a class="card lac cat reveal" href="catalog.html?group=filtry">
-        <img class="cat__img" src="assets/img/products/filter-fuel.webp" alt="" loading="lazy" width="816" height="2162">
-        <h3 class="cat__name">Фильтры</h3>
-        <p class="cat__count">Масляные · топливные · воздушные</p>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">ГРМ: цепи, ремни, звёзды</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Система охлаждения: помпа, теплообменник, термостат</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Трансмиссия: ШРУС</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Фильтры: масляный, воздушный, салона</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Электрооборудование: катушки, свечи</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Система питания: форсунки</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Сцепление</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Ремни генератора</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Резинотехника: пыльник ШРУСа, сайлентблоки</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Подшипники</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Отопление и вентиляция</h3>
+      </a>
+      <a class="card lac cat-mini reveal" href="catalog.html">
+        <h3 class="cat__name">Автотовары: герметик</h3>
       </a>
     </div>
   </div>
@@ -546,6 +565,6 @@
 }
 </script>
 
-<script src="assets/js/feres.js?v=5" defer></script>
+<script src="assets/js/feres.js?v=6" defer></script>
 </body>
 </html>
