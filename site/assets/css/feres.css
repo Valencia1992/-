@@ -242,14 +242,6 @@ h1,h2,h3,h4,p,figure{margin:0}
   position:relative;z-index:2}
 @media(min-width:720px){.cat--wide{grid-column:span 2}.cat--wide .cat__img{width:44%}}
 
-/* Мини-карточка категории */
-.cat-mini{display:flex;align-items:center;justify-content:flex-start;min-height:120px;padding:20px;
-  border:1px solid rgba(242,239,233,.1);background:linear-gradient(135deg,rgba(34,32,30,.4) 0%,rgba(34,32,30,.2) 100%);
-  transition:all var(--t)}
-.cat-mini:hover{border-color:rgba(242,239,233,.3);background:linear-gradient(135deg,rgba(34,32,30,.6) 0%,rgba(34,32,30,.4) 100%);
-  transform:translateY(-2px)}
-.cat-mini .cat__name{font-size:14px;text-transform:none;max-width:100%;line-height:1.4;font-weight:600}
-
 /* Показатель */
 .stat{padding:24px 22px 26px;display:flex;flex-direction:column;gap:6px}
 .stat__val{font-size:clamp(38px,4.4vw,58px);font-weight:700;line-height:1;color:var(--sand);letter-spacing:-.01em;
