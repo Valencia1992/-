@@ -10,12 +10,7 @@
   /* Интерактивная 3D модель шатуна */
   var modelCanvas = document.querySelector('[data-engine-model]');
   if (modelCanvas) {
-    Promise.all([
-      import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js'),
-      import('https://cdn.jsdelivr.net/npm/three@r128/examples/jsm/loaders/GLTFLoader.js')
-    ]).then(function (modules) {
-      var THREE = modules[0];
-      var GLTFLoader = modules[1].GLTFLoader;
+    import('https://cdn.jsdelivr.net/npm/three@r128/build/three.module.js').then(function (THREE) {
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
       var renderer = new THREE.WebGLRenderer({ canvas: modelCanvas, antialias: true, alpha: true });
@@ -23,11 +18,11 @@
       renderer.setClearColor(0x000000, 0);
 
       // Освещение
-      scene.add(new THREE.AmbientLight(0xffffff, 0.8));
-      var light1 = new THREE.DirectionalLight(0xffffff, 1);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+      var light1 = new THREE.DirectionalLight(0xffffff, 1.2);
       light1.position.set(5, 10, 7);
       scene.add(light1);
-      var light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+      var light2 = new THREE.DirectionalLight(0xffffff, 0.6);
       light2.position.set(-5, -3, -5);
       scene.add(light2);
 
@@ -35,26 +30,50 @@
       var group = new THREE.Group();
       scene.add(group);
 
-      // Загрузка GLB модели
-      var loader = new GLTFLoader();
-      loader.load('assets/models/rod.glb', function (gltf) {
-        var model = gltf.scene;
+      // Материалы
+      var metalMat = new THREE.MeshStandardMaterial({ color: 0x999999, metalness: 0.85, roughness: 0.15 });
+      var darkMat = new THREE.MeshStandardMaterial({ color: 0x444444, metalness: 0.8, roughness: 0.25 });
+      var goldMat = new THREE.MeshStandardMaterial({ color: 0xccaa44, metalness: 0.75, roughness: 0.2 });
 
-        // Масштабирование и позиционирование
-        var box = new THREE.Box3().setFromObject(model);
-        var size = box.getSize(new THREE.Vector3());
-        var maxDim = Math.max(size.x, size.y, size.z);
-        var scale = 2.5 / maxDim;
-        model.scale.multiplyScalar(scale);
+      // Построение шатуна
+      var rod = new THREE.Group();
 
-        var center = box.getCenter(new THREE.Vector3());
-        model.position.sub(center.multiplyScalar(scale));
+      // Стержень (вал)
+      var shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 3.2, 24), metalMat);
+      shaft.rotation.z = Math.PI / 2;
+      rod.add(shaft);
 
-        group.add(model);
-        camera.position.z = 4;
-      }, undefined, function (err) {
-        console.error('Ошибка загрузки модели:', err);
-      });
+      // Верхняя головка (большая)
+      var topBearing = new THREE.Mesh(new THREE.TorusGeometry(0.45, 0.15, 16, 32), goldMat);
+      topBearing.position.y = 1.6;
+      topBearing.rotation.y = Math.PI / 2;
+      rod.add(topBearing);
+
+      var topBearingInner = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.08, 12, 24), darkMat);
+      topBearingInner.position.y = 1.6;
+      topBearingInner.rotation.y = Math.PI / 2;
+      rod.add(topBearingInner);
+
+      // Нижняя головка (меньше)
+      var botBearing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.18, 16, 32), metalMat);
+      botBearing.position.y = -1.6;
+      botBearing.rotation.y = Math.PI / 2;
+      rod.add(botBearing);
+
+      var botBearingInner = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.09, 12, 24), darkMat);
+      botBearingInner.position.y = -1.6;
+      botBearingInner.rotation.y = Math.PI / 2;
+      rod.add(botBearingInner);
+
+      // Детали жесткости
+      for (var i = 0; i < 2; i++) {
+        var reinforcement = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.8, 0.15), metalMat);
+        reinforcement.position.set(i === 0 ? 0.25 : -0.25, 0, 0);
+        rod.add(reinforcement);
+      }
+
+      group.add(rod);
+      camera.position.z = 4;
 
       // Управление мышью
       var mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
@@ -63,8 +82,8 @@
       modelCanvas.addEventListener('pointerdown', function () { isDragging = true; });
       modelCanvas.addEventListener('pointermove', function (e) {
         if (!isDragging) return;
-        targetX += e.movementY * 0.005;
-        targetY += e.movementX * 0.005;
+        targetX += e.movementY * 0.006;
+        targetY += e.movementX * 0.006;
       });
       modelCanvas.addEventListener('pointerup', function () { isDragging = false; });
       modelCanvas.addEventListener('pointerleave', function () { isDragging = false; });
@@ -85,11 +104,11 @@
         requestAnimationFrame(animate);
 
         if (!isDragging) {
-          targetY += 0.002;
+          targetY += 0.0018;
         }
 
-        mouseX += (targetX - mouseX) * 0.1;
-        mouseY += (targetY - mouseY) * 0.1;
+        mouseX += (targetX - mouseX) * 0.12;
+        mouseY += (targetY - mouseY) * 0.12;
 
         group.rotation.x = mouseX;
         group.rotation.y = mouseY;
@@ -98,7 +117,7 @@
       };
       animate();
     }).catch(function (err) {
-      console.error('Ошибка загрузки:', err);
+      console.error('Ошибка Three.js:', err);
     });
   }
 
