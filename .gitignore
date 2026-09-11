@@ -8,7 +8,8 @@
 *.ai
 *.pdf
 *.rar
-*.mp4
+# Allow compressed video in production directory
+!site/assets/video/*.mp4
 *.mov
 *.psd
 *.eps
