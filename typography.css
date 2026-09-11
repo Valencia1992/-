@@ -1,0 +1,453 @@
+/* ========================================
+   ТИПОГРАФИЧЕСКАЯ СИСТЕМА FERES
+   ======================================== */
+
+/* ========================================
+   1. ФИРМЕННЫЕ ШРИФТЫ @font-face
+   ======================================== */
+
+/* PF Din Text Cond Pro - Light (300) */
+@font-face {
+  font-family: 'FERES';
+  src: url('../fonts/feres-300.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PF Din Text Cond Pro - Regular (400) */
+@font-face {
+  font-family: 'FERES';
+  src: url('../fonts/feres-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PF Din Text Cond Pro - Regular Italic (400i) */
+@font-face {
+  font-family: 'FERES';
+  src: url('../fonts/feres-400i.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* PF Din Text Cond Pro - Medium (500) */
+@font-face {
+  font-family: 'FERES';
+  src: url('../fonts/feres-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PF Din Text Cond Pro - Bold (700) */
+@font-face {
+  font-family: 'FERES';
+  src: url('../fonts/feres-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   2. CSS ПЕРЕМЕННЫЕ ДЛЯ ТИПОГРАФИКИ
+   ======================================== */
+
+:root {
+  /* Семейство шрифтов */
+  --font-brand: 'FERES', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Веса шрифтов */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+  /* ========== МАСШТАБНАЯ ШКАЛА РАЗМЕРОВ ==========
+     Коэффициент масштабирования: 1.25 (Perfect Fourth)
+     Base: 16px
+     Scale: 16 → 20 → 25 → 31.25 → 39 → 49 → 61 → 76 → 95
+  ================================================== */
+
+  /* Заголовки */
+  --fs-h1: clamp(38px, 7.2vw, 84px);     /* Самый крупный заголовок */
+  --fs-h2: clamp(64px, 10.4vw, 128px);   /* Основной заголовок секции (увеличено в 2x) */
+  --fs-h3: clamp(24px, 3.2vw, 44px);     /* Подзаголовок (увеличено) */
+  --fs-h4: 20px;                        /* Малый заголовок (увеличено) */
+  --fs-h5: 18px;                        /* Очень малый заголовок (увеличено) */
+
+  /* Основной текст и вариации */
+  --fs-body: 34px;                      /* Основной размер текста (H3, увеличено в 2x) */
+  --fs-body-sm: 30px;                   /* Уменьшенный основной текст (увеличено в 2x) */
+  --fs-small: 30px;                     /* Мелкий текст (увеличено в 2x) */
+  --fs-xs: 28px;                        /* Очень мелкий текст (увеличено в 2x) */
+  --fs-micro: 26px;                     /* Микро текст (увеличено в 2x) */
+  --fs-eyebrow: 24px;                   /* Вспомогательный текст (увеличено в 2x) */
+
+  /* Высота строк (line-height) */
+  --lh-tight: 1.1;                      /* Для заголовков */
+  --lh-normal: 1.4;                     /* Для текста */
+  --lh-relaxed: 1.6;                    /* Для больших блоков текста */
+  --lh-loose: 1.8;                      /* Для читаемости */
+
+  /* Интерлеттинг (letter-spacing) */
+  --ls-tight: -0.01em;                  /* Для крупных заголовков */
+  --ls-normal: 0;                       /* По умолчанию */
+  --ls-loose: 0.03em;                   /* Для тега-текста */
+  --ls-ultra-loose: 0.14em;             /* Для UPPERCASE */
+}
+
+/* ========================================
+   3. ТИПОГРАФИЧЕСКИЕ ОСНОВЫ (Теги)
+   ======================================== */
+
+body {
+  font-family: var(--font-brand);
+  font-size: var(--fs-body);
+  font-weight: var(--font-regular);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-normal);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-normal);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+  font-weight: var(--font-medium);
+  line-height: var(--lh-normal);
+}
+
+p {
+  font-size: var(--fs-body);
+  font-weight: var(--font-regular);
+  line-height: var(--lh-relaxed);
+}
+
+small {
+  font-size: var(--fs-small);
+}
+
+/* ========================================
+   4. СЕМАНТИЧЕСКИЕ КЛАССЫ
+   ======================================== */
+
+/* Заголовки - используй для визуального размера без смены тега */
+.h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-tight);
+}
+
+.h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--font-bold);
+  line-height: var(--lh-normal);
+}
+
+.h5 {
+  font-size: var(--fs-h5);
+  font-weight: var(--font-medium);
+  line-height: var(--lh-normal);
+}
+
+/* Основной текст */
+.body {
+  font-size: var(--fs-body);
+  font-weight: var(--font-regular);
+  line-height: var(--lh-relaxed);
+}
+
+.body-sm {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--font-regular);
+  line-height: var(--lh-relaxed);
+}
+
+/* Текст меньше стандартного */
+.small {
+  font-size: var(--fs-small);
+  font-weight: var(--font-regular);
+}
+
+.xs {
+  font-size: var(--fs-xs);
+  font-weight: var(--font-regular);
+}
+
+.micro {
+  font-size: var(--fs-micro);
+  font-weight: var(--font-regular);
+}
+
+/* Введение/лид-текст (больше стандартного) */
+.lead {
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: var(--font-light);
+  line-height: var(--lh-relaxed);
+}
+
+/* Вспомогательный текст (eyebrow) */
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--font-medium);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-loose);
+  text-transform: uppercase;
+}
+
+/* Текст-тег с UPPERCASE и разреженным интерлеттингом */
+.label,
+.tag {
+  font-size: var(--fs-micro);
+  font-weight: var(--font-medium);
+  line-height: 1;
+  letter-spacing: var(--ls-ultra-loose);
+  text-transform: uppercase;
+}
+
+/* ========================================
+   5. ДЕКОРАТИВНЫЕ ТИПОГРАФИЧЕСКИЕ ВАРИАНТЫ
+   ======================================== */
+
+/* Жирный текст */
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+.font-medium {
+  font-weight: var(--font-medium);
+}
+
+.font-regular {
+  font-weight: var(--font-regular);
+}
+
+.font-light {
+  font-weight: var(--font-light);
+}
+
+/* Курсив */
+.italic {
+  font-style: italic;
+}
+
+/* Трансформация текста */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* Интерлеттинг (для специальных случаев) */
+.ls-tight {
+  letter-spacing: var(--ls-tight);
+}
+
+.ls-loose {
+  letter-spacing: var(--ls-loose);
+}
+
+.ls-ultra-loose {
+  letter-spacing: var(--ls-ultra-loose);
+}
+
+/* Высота строки */
+.lh-tight {
+  line-height: var(--lh-tight);
+}
+
+.lh-normal {
+  line-height: var(--lh-normal);
+}
+
+.lh-relaxed {
+  line-height: var(--lh-relaxed);
+}
+
+.lh-loose {
+  line-height: var(--lh-loose);
+}
+
+/* ========================================
+   6. ШАБЛОНЫ ДЛЯ РАСПРОСТРАНЁННЫХ БЛОКОВ
+   ======================================== */
+
+/* Текст с уменьшенной контрастностью */
+.text-secondary {
+  opacity: 0.85;
+}
+
+.text-tertiary {
+  opacity: 0.65;
+}
+
+/* Многострочный текст с правильными отступами */
+.text-block {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  margin-bottom: 1em;
+}
+
+.text-block + .text-block {
+  margin-top: 0;
+}
+
+/* ========================================
+   7. СПЕЦИФИЧЕСКИЕ ТИПОГРАФИЧЕСКИЕ КОМПОНЕНТЫ
+   ======================================== */
+
+/* Вспомогательный текст с маркером слева (надзаголовок в блоках) */
+.quality-eyebrow {
+  font-size: 16px;
+  font-weight: var(--font-medium);
+  letter-spacing: var(--ls-loose);
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+
+.quality-eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 1px;
+}
+
+/* Надзаголовок секции с маркером-черточкой */
+.section-eyebrow {
+  font-size: 13px;
+  font-weight: var(--font-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--sand);
+  position: relative;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--sand);
+  flex-shrink: 0;
+}
+
+/* Заголовок точки в списке качества (H3) */
+.quality-point-title {
+  font-size: 20px;
+  font-weight: var(--font-bold);
+  line-height: 1.3;
+  margin-bottom: 8px;
+  margin-top: 0;
+  color: rgba(242, 239, 233, 0.95);
+}
+
+/* Описание под заголовок точки */
+.quality-point-desc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: var(--font-regular);
+  color: rgba(242, 239, 233, 0.75);
+}
+
+/* Подзаголовок в блоках качества/производства (LEGACY) */
+.quality-subtitle {
+  font-size: 19px;
+  font-weight: var(--font-bold);
+  line-height: 1.263;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+/* Описание под качество-подзаголовком (LEGACY) */
+.quality-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.357;
+}
+
+/* Текст-тег для каталога (14 категорий) */
+.cat-subtitle {
+  font-size: 13px;
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+  letter-spacing: var(--ls-loose);
+  text-transform: uppercase;
+}
+
+/* Крупный заголовок качества */
+.quality-title {
+  font-size: 24px;
+  line-height: 1.208;
+  margin-bottom: 24px;
+  font-weight: var(--font-bold);
+}
+
+/* Заголовок категории в каталоге */
+.cat-category-title {
+  font-size: 16px;
+  font-weight: var(--font-bold);
+}
+
+.cat-category-title .cat-item-name {
+  font-weight: var(--font-regular);
+  font-size: 13px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
