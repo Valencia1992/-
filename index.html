@@ -1,15 +1,606 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=site/index.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FERES</title>
-    <script>
-      window.location.replace('site/index.html');
-    </script>
-  </head>
-  <body>
-    <p>Перенаправление на сайт…</p>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Автозапчасти для легкового и грузового транспорта | FERES</title>
+<meta name="description" content="Автозапчасти для легкового и грузового транспорта. Собственное производство, поставки по России и СНГ. Подбор по марке авто, артикулу и названию товара.">
+<link rel="canonical" href="https://feres.ru/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FERES">
+<meta property="og:title" content="Автозапчасти для легкового и грузового транспорта | FERES">
+<meta property="og:description" content="Собственное производство автозапчастей, поставки по России и СНГ. Подбор по марке авто, артикулу и названию товара.">
+<meta property="og:url" content="https://feres.ru/">
+<meta property="og:image" content="https://feres.ru/assets/img/brand/favicon-512.png">
+<link rel="icon" href="assets/img/brand/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/brand/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/img/brand/favicon-180.png">
+<link rel="preload" href="assets/fonts/feres-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/feres-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/feres.css?v=132">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.152.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.152.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<!-- ================= ШАПКА ================= -->
+<header class="header">
+  <div class="wrap header__bar">
+    <a class="header__logo" href="index.html" aria-label="FERES — на главную">
+      <img src="assets/img/brand/logo-block-sand.png?v=2" alt="R FERES.RU" width="1100" height="225">
+    </a>
+
+    <nav class="nav" aria-label="Основное меню">
+      <a href="catalog.html">Каталог</a>
+      <button class="nav__search-trigger" type="button" data-search-open>Поиск</button>
+      <a href="where-to-buy.html">Где купить</a>
+      <a href="partners.html">Партнёрам</a>
+      <a href="knowledge.html">База знаний</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+
+    <div class="header__acts">
+      <a class="header__phone" href="tel:+78482639090">+7 (8482) 63-90-90</a>
+      <a class="header__icon" href="account.html" aria-label="Личный кабинет">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a class="btn btn--ghost btn--sm header__cta" href="where-to-buy.html">Где купить</a>
+      <a class="btn btn--primary btn--sm header__cta sheen" href="partners.html#form">Стать партнёром</a>
+      <button class="burger" type="button" data-menu-open aria-expanded="false" aria-controls="mmenu" aria-label="Открыть меню">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Мобильное меню -->
+<div class="mmenu" id="mmenu" data-menu>
+  <div class="mmenu__head">
+    <img src="assets/img/brand/logo-feresru-sand.png" alt="FERES" width="900" height="188" style="height:24px;width:auto">
+    <button class="header__icon" type="button" data-menu-close aria-label="Закрыть меню">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Мобильное меню">
+    <a class="mmenu__link" href="catalog.html">Каталог</a>
+    <a class="mmenu__link" href="catalog.html#by-car">Подбор по авто</a>
+    <a class="mmenu__link" href="where-to-buy.html">Где купить</a>
+    <a class="mmenu__link" href="partners.html">Партнёрам</a>
+    <a class="mmenu__link" href="company.html">Компания</a>
+    <a class="mmenu__link" href="knowledge.html">База знаний</a>
+    <a class="mmenu__link" href="contacts.html">Контакты</a>
+    <a class="mmenu__link" href="account.html">Личный кабинет</a>
+  </nav>
+  <div class="mmenu__foot">
+    <a class="btn btn--primary btn--block" href="partners.html#form">Стать партнёром</a>
+    <a class="btn btn--ghost btn--block" href="where-to-buy.html">Где купить</a>
+    <a class="h3" href="tel:+78482639090">+7 (8482) 63-90-90</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ================= ГЕРОЙ: cinematic full-bleed сцена ================= -->
+<section class="hero">
+  <div class="hero__scene">
+    <div class="hero__bg" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="auto" poster="assets/img/atmo/crop-wide.jpg">
+        <source src="assets/video/feres-production-web.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__diag" aria-hidden="true"></div>
+    <div class="hero__sweep" aria-hidden="true"></div>
+
+    <div class="wrap hero__stage">
+      <h1 class="hero__title">Автозапчасти для легкового<br>и грузового транспорта</h1>
+      <p class="hero__sub">Собственное производство автозапчастей, поставки по России и СНГ.</p>
+    </div>
+  </div>
+
+  <!-- CTA-планка на всю ширину: три главных действия с иерархией -->
+  <div class="hero__bar">
+    <div class="wrap hero__barin">
+      <a class="hero__baract hero__baract--primary" href="catalog.html">Каталог продукции
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="hero__baract hero__baract--secondary" href="partners.html#form">Стать партнёром
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="hero__baract hero__baract--tertiary" href="where-to-buy.html">Где купить
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="search-modal" data-search-modal aria-hidden="true">
+  <div class="search-modal__backdrop" data-search-close></div>
+  <div class="search-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <button class="search-modal__close" type="button" data-search-close aria-label="Закрыть поиск">×</button>
+    <p class="eyebrow">Поиск</p>
+    <h3 class="h3" id="search-modal-title">Подберём автозапчасть</h3>
+    <form class="search-modal__form" data-search-modal-form>
+      <label class="vh" for="modal-q">Введите марку автомобиля, артикул, название товара</label>
+      <input id="modal-q" name="q" type="search" autocomplete="off" placeholder="Марка автомобиля, артикул, название товара" aria-label="Поиск по каталогу">
+      <button class="btn btn--primary" type="submit">Найти</button>
+    </form>
+    <div class="search-modal__results" data-search-modal-results aria-live="polite"></div>
+  </div>
+</div>
+
+<!-- ================= КАЧЕСТВО И 3D-МОДЕЛЬ ================= -->
+<section class="section quality-model section--line">
+  <div class="wrap quality-model__grid">
+    <div class="quality-model__copy">
+      <div class="sec-head">
+        <span class="section-eyebrow">Контроль качества</span>
+        <div class="scale" aria-hidden="true"></div>
+        <h2 class="h2 quality-title">Собственное производство автозапчастей</h2>
+      </div>
+
+      <ul class="quality-model__points">
+        <li>
+          <h3 class="quality-point-title">Мы сами производим детали - и сами отвечаем за их качество</h3>
+          <p class="quality-point-desc">Контроль производства автокомпонентов на каждом этапе: от выбора сырья, литья и механической обработки до нанесения покрытий, измерений и испытаний.</p>
+        </li>
+        <li>
+          <h3 class="quality-point-title">Контроль каждые 2 часа</h3>
+          <p class="quality-point-desc">Параметры деталей проверяются непосредственно в процессе производства.</p>
+        </li>
+        <li>
+          <h3 class="quality-point-title">Точность до ±5 мкм</h3>
+          <p class="quality-point-desc">Класс поршня определяется по фактическому диаметру детали.</p>
+        </li>
+        <li>
+          <h3 class="quality-point-title">Метрологический контроль</h3>
+          <p class="quality-point-desc">Профилометр, кругломер, контурограф и 3D-измерения помогают контролировать ключевые параметры.</p>
+        </li>
+        <li>
+          <h3 class="quality-point-title">IATF 16949</h3>
+          <p class="quality-point-desc">Система менеджмента качества для автомобильной промышленности.</p>
+        </li>
+      </ul>
+    </div>
+    <div class="quality-model__visual">
+      <canvas class="engine-model" data-engine-model aria-label="Интерактивная 3D-модель шатуна"></canvas>
+      <span class="quality-model__hint">Повернуть модель</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СЕРИИ ПРОДУКЦИИ ================= -->
+<section class="section section--ink1 section--line">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="section-eyebrow">Серии продукции</span>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Две серии продукции FERES — под разные задачи</h2>
+      </div>
+    </div>
+
+    <div class="series-grid" data-stagger>
+      <article class="card lac series-card reveal">
+        <div class="series-card__media">
+          <img src="assets/img/series/classic-box.png" alt="Коробка линейки Classic FERES" loading="eager" width="1700" height="1039">
+        </div>
+        <div class="series-card__body">
+          <span class="series-card__mark">CLASSIC</span>
+          <h3 class="h3">CLASSIC</h3>
+          <p class="small">Для стандартной эксплуатации и умеренного стиля езды. Надёжные материалы и конструкция обеспечивают высокий ресурс при повседневной нагрузке.</p>
+          <div style="height:15px"></div>
+          <p class="cat-subtitle" style="color:rgba(242,239,233,.65)">стандартная нагрузка • высокий ресурс • повседневная эксплуатация</p>
+        </div>
+      </article>
+
+      <article class="card lac series-card reveal">
+        <div class="series-card__media">
+          <img src="assets/img/series/platinum-box.png" alt="Коробка линейки Platinum FERES" loading="eager" width="1700" height="1039">
+        </div>
+        <div class="series-card__body">
+          <span class="series-card__mark series-card__mark--platinum">PLATINUM</span>
+          <h3 class="h3">PLATINUM</h3>
+          <p class="small">Для высоконагруженных двигателей и более тяжёлых условий эксплуатации. Усиленная конструкция, более износостойкие материалы и повышенный ресурс.</p>
+          <div style="height:15px"></div>
+          <p class="cat-subtitle" style="color:rgba(242,239,233,.65)">высокая нагрузка • усиленная конструкция • повышенный ресурс</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КАТАЛОГ ================= -->
+<section class="section section--ink1 section--line" id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Каталог</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Каталог автозапчастей</h2>
+      </div>
+    </div>
+    <p class="body mt-24" style="max-width:80ch;margin-bottom:48px">В ассортименте FERES представлено более 800 наименований продукции – автозапчасти для легкового, грузового и коммерческого транспорта.</p>
+
+    <div class="grid cols-3" data-stagger>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/piston-group.webp" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name cat-category-title">ЦПГ<span class="cat-item-name">поршни, шатуны, кольца</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/piston-group.webp" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">Двигатель<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">клапана, гидрокомпенсаторы, ГРМ</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/strut-mount.webp" alt="" loading="lazy" width="873" height="726">
+        <h3 class="cat__name" class="cat-category-title">Подвеска<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">шаровая опора, стойки, амортизаторы</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-classic-1.png" alt="" loading="lazy" width="1000" height="603">
+        <h3 class="cat__name" class="cat-category-title">Тормозная система<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">диски, колодки, цилиндры</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/cv-joint.webp" alt="" loading="lazy" width="678" height="584">
+        <h3 class="cat__name" class="cat-category-title">Прокладки<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase"></span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-sport-1.png" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">ГРМ<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">цепи, ремни, звёзды</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-classic-1.png" alt="" loading="lazy" width="1000" height="603">
+        <h3 class="cat__name" class="cat-category-title">Система охлаждения<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">помпа, теплообменник, термостат</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/cv-joint.webp" alt="" loading="lazy" width="678" height="584">
+        <h3 class="cat__name" class="cat-category-title">Трансмиссия<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">ШРУС</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/filter-fuel.webp" alt="" loading="lazy" width="816" height="2162">
+        <h3 class="cat__name" class="cat-category-title">Фильтры<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">масляный, воздушный, салона</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/clutch-1.png" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">Электрооборудование<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">катушки, свечи</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-classic-1.png" alt="" loading="lazy" width="1000" height="603">
+        <h3 class="cat__name" class="cat-category-title">Система питания<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">форсунки</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/clutch-1.png" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">Сцепление<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase"></span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-sport-1.png" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">Ремни генератора<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase"></span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/strut-mount.webp" alt="" loading="lazy" width="873" height="726">
+        <h3 class="cat__name" class="cat-category-title">Резинотехника<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">пыльник ШРУСа, сайлентблоки</span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/piston-group.webp" alt="" loading="lazy" width="1000" height="523">
+        <h3 class="cat__name" class="cat-category-title">Подшипники<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase"></span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/disc-classic-1.png" alt="" loading="lazy" width="1000" height="603">
+        <h3 class="cat__name" class="cat-category-title">Отопление и вентиляция<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase"></span></h3>
+      </a>
+      <a class="card lac cat reveal" href="catalog.html">
+        <img class="cat__img" src="assets/img/products/cv-joint.webp" alt="" loading="lazy" width="678" height="584">
+        <h3 class="cat__name" class="cat-category-title">Автотовары<span style="font-weight:400;display:block;font-size:13px;margin-top:4px;text-transform:uppercase">герметик</span></h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ДИСТРИБЬЮТЕРАМ (NATURAL PARALLAX SCROLL) ================= -->
+<div class="bp-section" style="min-height: 130vh !important;">
+
+  <!-- FIXED BLUEPRINT BACKGROUND (ONLY FROZEN ELEMENT) -->
+  <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/img/chertezh.png?v=1'); background-size: contain; background-position: center; background-repeat: no-repeat; opacity: 0.18; z-index: 1; pointer-events: none;" aria-hidden="true"></div>
+
+  <!-- STEP 1: First Card Track (natural scroll, slides up over blueprint) -->
+  <div style="height: 100vh; position: relative; z-index: 2; display: flex; align-items: center; justify-content: center;">
+    <div class="wrap">
+      <div class="card lac form-card reveal">
+        <p class="eyebrow">ДИСТРИБЬЮТЕРАМ</p>
+        <h2 class="h2 mt-16">Стать партнёром FERES</h2>
+        <p class="body mt-16" style="max-width:70ch">Мы строим долгосрочную дилерскую сеть. Мы не демпингуем и не размываем рынок. Вместо этого предлагаем сильный бренд, востребованный продукт и условия, при которых каждый участник партнёрской сети сохраняет свою прибыль. Рост продаж наших партнёров подтверждает главное - доверие к FERES превращается в стабильный спрос и устойчивый доход.</p>
+        <p class="body mt-16" style="max-width:70ch">Если вас интересует крупный опт, заполните заявку о сотрудничестве.</p>
+        <div class="row mt-24">
+          <a class="btn btn--primary sheen" href="partners.html#form">Стать партнёром</a>
+          <a class="btn btn--ghost sheen" href="tel:+78482639090">Заказать звонок</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Bottom Cards Track (natural scroll, follows first card with extended delay) -->
+  <div style="height: 60vh; position: relative; z-index: 3; display: flex; align-items: center; justify-content: center; margin-top: 40px;">
+    <div class="wrap">
+      <div class="grid cols-2" data-stagger style="position: sticky; top: 50%; transform: translateY(-50%);">
+        <div class="card lac fork sheen reveal">
+          <div>
+            <p class="eyebrow">Магазинам и СТО</p>
+            <h2 class="h3 mt-16">Нужен FERES для вашего бизнеса?</h2>
+          </div>
+          <p class="body mt-16" style="max-width:60ch">Мы поможем организовать закупки через официального дистрибьютора в вашем регионе. Помимо поставок, партнёры FERES получают маркетинговую поддержку, обучение персонала и инструменты для роста продаж. Вы работаете с востребованным брендом - мы помогаем превращать спрос в прибыль.</p>
+          <div class="row mt-24">
+            <a class="btn btn--primary sheen" href="partners.html#form">Оставить заявку</a>
+            <a class="btn btn--ghost sheen" href="where-to-buy.html">Выбрать партнёра</a>
+          </div>
+        </div>
+
+        <div class="card lac fork sheen reveal">
+          <div>
+            <p class="eyebrow">Розничным покупателям</p>
+            <h2 class="h3 mt-16">Покупайте FERES там, где удобно</h2>
+          </div>
+          <p class="body mt-16" style="max-width:60ch">Заказать продукцию FERES можно на маркетплейсах, в интернет-магазинах и торговых точках наших партнёров. Оригинальные детали доступны по всей России через официальные каналы продаж.</p>
+          <div class="row mt-24">
+            <a class="btn btn--primary sheen" href="where-to-buy.html">Где купить</a>
+            <a class="btn btn--ghost sheen" href="tel:+78482639090">Заказать звонок</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section class="history-timeline" style="margin-top: 0px;">
+  <!-- Контент: заголовок + панель события вверху -->
+  <div class="history-timeline__content">
+    <div class="wrap history-timeline__wrap">
+      <!-- Верхняя часть: надзаголовок и заголовок -->
+      <div class="history-timeline__header">
+        <span class="section-eyebrow">История FERES</span>
+        <div class="scale" aria-hidden="true"></div>
+        <h2 class="h2">Развитие компании</h2>
+      </div>
+
+      <!-- Панель описания события слева (под заголовком) -->
+      <div class="history__event">
+        <div class="history__event-eyebrow">1899 г.</div>
+        <div class="history__event-body">Основание Federal‑Mogul.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Горизонтальный таймлайн SEVI: годы в ряд + линия + подписи -->
+  <div class="timeline-bar" data-timeline-track>
+    <div class="wrap timeline-bar__grid">
+      <!-- Единая сетка: годы (5 колонок) + стрелки (6-я колонка) -->
+      <div class="timeline-bar__years-row">
+        <div class="timeline-bar__years" data-timeline-years>
+          <!-- Годы рендерятся JavaScript для видимого окна -->
+        </div>
+        <div class="timeline-bar__nav">
+          <button class="timeline-bar__arrow timeline-bar__arrow--prev" type="button" aria-label="Предыдущие">◀</button>
+          <button class="timeline-bar__arrow timeline-bar__arrow--next" type="button" aria-label="Следующие">▶</button>
+        </div>
+      </div>
+
+      <!-- Тонкая горизонтальная линия (на всю ширину) -->
+      <div class="timeline-bar__axis"></div>
+
+      <!-- Ряд подписей (5 колонок + пустая 6-я под стрелки) -->
+      <div class="timeline-bar__labels" data-timeline-labels>
+        <!-- Подписи рендерятся JavaScript для видимого окна -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Метрики компании -->
+<section class="section">
+  <div class="wrap">
+    <div class="timeline-metrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem">
+      <div class="metric-card">
+        <div class="metric-value">800+</div>
+        <div class="metric-label">Товарных позиций</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">250+</div>
+        <div class="metric-label">Официальных представителей</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">20 тыс.+</div>
+        <div class="metric-label">Отзывов 5*</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ПОЧЕМУ FERES ================= -->
+<section class="section section--ink1 section--line">
+  <video class="history-timeline__video" autoplay muted loop playsinline preload="none" aria-hidden="true">
+    <source src="assets/video/video-25-05-26-01-43.mp4" type="video/mp4">
+  </video>
+
+  <div class="history-timeline__overlay-base" aria-hidden="true"></div>
+  <div class="history-timeline__overlay-gradient" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Почему FERES</p>
+      <div class="scale" aria-hidden="true"></div>
+      <div class="sec-head__top">
+        <h2 class="h2">Почему FERES?</h2>
+      </div>
+      <p class="body">Автовладельцы выбирают решения, которым готовы доверять. Поэтому мы тщательно контролируем не только этапы производства, но и отвечаем за отгрузку и хранение автозапчастей FERES. А также позаботились о том, чтобы оригинальность товара можно было подтвердить.</p>
+      <div class="row mt-24">
+        <a class="btn btn--ghost sheen" href="where-to-buy.html">Где купить</a>
+        <a class="btn btn--ghost sheen" href="partners.html#form">Стать партнёром</a>
+        <a class="btn btn--ghost sheen" href="catalog.html">Новинки продукции</a>
+        <a class="btn btn--ghost sheen" href="catalog.html">Смотреть каталог</a>
+      </div>
+    </div>
+
+    <div class="grid cols-4" data-stagger>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+        </span>
+        <h3 class="h4">Защитная наклейка</h3>
+        <p class="small">Голографический элемент и уникальный код помогают проверить подлинность продукции.</p>
+      </div>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.4-4.2A2 2 0 0 0 15.7 5.4H8.3a2 2 0 0 0-1.9 1.4Z"/><path d="M5 11v6h14v-6"/><circle cx="8" cy="17.5" r="1.6"/><circle cx="16" cy="17.5" r="1.6"/></svg>
+        </span>
+        <h3 class="h4">Проверка по SMS</h3>
+        <p class="small">Сотрите защитный слой и проверьте код через SMS на номер 2420.</p>
+      </div>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.6a4 4 0 0 1 0 7.8"/></svg>
+        </span>
+        <h3 class="h4">Фирменная гравировка</h3>
+        <p class="small">Логотип FERES нанесён непосредственно на деталь — дополнительный признак оригинальной продукции.</p>
+      </div>
+      <div class="card lac tile reveal">
+        <span class="tile__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.4 3.1 8.2 7.5 9 4.4-.8 7.5-4.6 7.5-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+        </span>
+        <h3 class="h4">Антикоррозионная защита</h3>
+        <p class="small">Детали упакованы в специальный ингибированный пакет, который защищает их от влаги при хранении и перевозке.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= ПОДВАЛ ================= -->
+<div class="finale" data-finale>
+ <div class="finale__inner">
+
+  <!-- Финальный экран: страница уезжает вверх и открывает его как занавес -->
+  <section class="finale__stage">
+    <div class="finale__tech" aria-hidden="true"></div>
+    <div class="finale__curtain" aria-hidden="true"></div>
+    <div class="finale__aurora" aria-hidden="true"></div>
+
+    <h2 class="finale__title">Где приобрести продукцию FERES?</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:900px;margin-left:auto;margin-right:auto;align-items:center">
+      <div style="text-align:center">
+        <p class="finale__sub" style="margin-bottom:20px">Если вас интересуют крупные оптовые заказы</p>
+        <a class="pill pill--primary magnet sheen" href="partners.html#form">
+          Стать партнёром
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div style="text-align:center">
+        <p class="finale__sub" style="margin-bottom:20px">Если мелкий опт или розница</p>
+        <a class="pill magnet" href="where-to-buy.html">
+          Где купить
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+<footer class="footer finale__foot">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:40px;padding:40px 0">
+      <!-- Social icons -->
+      <div style="display:flex;gap:14px">
+        <a href="#" aria-label="Instagram" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--sand-hi) 0%,var(--sand) 46%,var(--sand-deep) 100%);border-radius:2px;color:#000;transition:all 0.32s;flex-shrink:0;text-decoration:none">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--sand-hi) 0%,var(--sand) 46%,var(--sand-deep) 100%);border-radius:2px;color:#000;transition:all 0.32s;flex-shrink:0;text-decoration:none">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="#" aria-label="ВКонтакте" style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:linear-gradient(140deg,var(--sand-hi) 0%,var(--sand) 46%,var(--sand-deep) 100%);border-radius:2px;color:#000;transition:all 0.32s;flex-shrink:0;text-decoration:none">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 16.9c-5 0-8.2-3.5-8.3-9.3h2.6c.1 4.3 2 6.1 3.4 6.4V7.6h2.4v3.7c1.4-.2 2.9-1.8 3.4-3.7h2.4c-.4 2.3-1.9 3.9-3 4.6 1.1.6 2.8 2 3.5 4.7h-2.6c-.5-1.7-1.8-3-3.7-3.2v3.2Z"/></svg>
+        </a>
+      </div>
+
+      <!-- Email -->
+      <a href="mailto:sales@feres.ru" style="color:rgba(221,203,164,.9);text-decoration:none;font-weight:500;letter-spacing:0.02em;font-size:18px;flex-shrink:0">sales@feres.ru</a>
+
+      <!-- Phone -->
+      <a href="tel:+78482639090" style="color:rgba(242,239,233,.9);text-decoration:none;font-weight:500;letter-spacing:0.02em;font-size:18px;flex-shrink:0">+7 (8482) 63-90-90</a>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="micro">© 2026 FERES · ООО «ФЕДЕРАЛ РЕЗЕРВ». Цены на сайте не публикуются: стоимость — у партнёров и в личном кабинете дилера.</p>
+      <div class="footer__legal">
+        <a href="privacy-policy.html">Политика конфиденциальности</a>
+        <a href="personal-data-consent.html">Согласие на обработку ПДн</a>
+        <a href="contacts.html#requisites">Реквизиты</a>
+      </div>
+      <button class="pill pill--icon pill--sm magnet to-top" type="button" data-to-top aria-label="Наверх">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l7-7 7 7M12 4v16"/></svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+ </div>
+</div>
+
+<!-- Cookie-баннер: до согласия необязательные счётчики не запускаются -->
+<div class="cookie" data-cookie role="dialog" aria-label="Использование cookies">
+  <p>Сайт использует cookies и Яндекс.Метрику, чтобы работать корректно и понимать, какие разделы полезны. Подробности — в <a class="txt-sand" href="privacy-policy.html">политике конфиденциальности</a>.</p>
+  <button class="btn btn--primary btn--sm" type="button" data-cookie-accept>Принять</button>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://feres.ru/#org",
+      "name": "FERES",
+      "legalName": "ООО «ФЕДЕРАЛ РЕЗЕРВ»",
+      "url": "https://feres.ru/",
+      "logo": "https://feres.ru/assets/img/brand/logo-block-black.png",
+      "slogan": "Уверенность после ремонта",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Тольятти",
+        "streetAddress": "ул. Ленина, 42, стр. 3",
+        "postalCode": "445007",
+        "addressCountry": "RU"
+      },
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+7-8482-63-90-90",
+        "contactType": "sales",
+        "email": "sales@feres.ru",
+        "areaServed": "RU",
+        "availableLanguage": "Russian"
+      }]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://feres.ru/#website",
+      "url": "https://feres.ru/",
+      "name": "FERES — автокомпоненты",
+      "publisher": { "@id": "https://feres.ru/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://feres.ru/catalog/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
+<script src="assets/js/feres.js?v=120" defer></script>
+</body>
 </html>

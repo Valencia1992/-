@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>FERES — концепт «Инженерия без компромиссов» (черновой вариант)</title>
+<meta name="description" content="Альтернативный, кинематографичный вариант главной страницы FERES: liquid-glass интерфейс, крупная курсивная типографика, вращающиеся детали вместо видео.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   FERES — концепт «cinematic / liquid glass».
+   Отдельная страница-эксперимент, НЕ часть основного сайта (не в меню,
+   noindex). Эффекты référence-промпта (liquid glass, blur-in текст по
+   словам) воспроизведены на чистом CSS/JS — без React/Tailwind/Framer,
+   чтобы остаться в стеке, который уже выбран для проекта. Видео нет —
+   вместо него настоящие фото деталей с медленным вращением и кроссфейдом.
+   ========================================================================= */
+@font-face{font-family:'PF Din Text Cond Pro';src:url('assets/fonts/feres-300.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'PF Din Text Cond Pro';src:url('assets/fonts/feres-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'PF Din Text Cond Pro';src:url('assets/fonts/feres-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'PF Din Text Cond Pro';src:url('assets/fonts/feres-700.woff2') format('woff2');font-weight:700;font-display:swap}
+
+:root{
+  --ink:#000000; --ink-1:#0A0A0B; --ink-2:#111113;
+  --sand:#DDCBA4; --sand-hi:#F6EDD9; --sand-deep:#B49B69;
+  --text:#F2EFE9; --text-2:#C4C1B8; --text-3:#8B8A82;
+  --font-display:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --font-ui:'PF Din Text Cond Pro','Roboto Condensed','Arial Narrow',system-ui,sans-serif;
+  --gutter:clamp(20px,4vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--font-ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.i{font-style:italic}
+
+/* --- liquid glass, в песочном тоне бренда вместо белого -------------------- */
+.glass{position:relative;overflow:hidden;isolation:isolate;
+  background:rgba(221,203,164,.045);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.08)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.3px;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(221,203,164,.55) 0%,rgba(221,203,164,.16) 20%,rgba(221,203,164,0) 40%,
+    rgba(221,203,164,0) 60%,rgba(221,203,164,.16) 80%,rgba(221,203,164,.55) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass-strong{background:rgba(221,203,164,.09);backdrop-filter:blur(34px);-webkit-backdrop-filter:blur(34px);
+  box-shadow:0 6px 24px rgba(0,0,0,.5),inset 0 1px 1px rgba(255,255,255,.14)}
+.glass-strong::before{background:linear-gradient(180deg,rgba(221,203,164,.7) 0%,rgba(221,203,164,.28) 20%,
+    rgba(221,203,164,0) 40%,rgba(221,203,164,0) 60%,rgba(221,203,164,.28) 80%,rgba(221,203,164,.7) 100%)}
+
+/* --- шапка ------------------------------------------------------------------ */
+.nav{position:fixed;top:18px;left:0;right:0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;padding-inline:var(--gutter)}
+.nav__mark{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:none}
+.nav__mark img{width:20px;height:auto}
+.nav__pill{display:none;align-items:center;gap:2px;border-radius:999px;padding:6px}
+.nav__pill a{padding:10px 16px;font-size:14px;font-weight:500;color:rgba(242,239,233,.86);border-radius:999px;
+  transition:background .25s,color .25s}
+.nav__pill a:hover{background:rgba(221,203,164,.1);color:var(--sand-hi)}
+.nav__cta{display:inline-flex;align-items:center;gap:8px;background:var(--sand);color:#000;font-weight:700;
+  font-size:13px;letter-spacing:.03em;text-transform:uppercase;padding:11px 18px;border-radius:999px;margin-left:6px;
+  white-space:nowrap;transition:background .25s}
+.nav__cta:hover{background:var(--sand-hi)}
+.nav__spacer{width:46px;height:46px;flex:none}
+@media(min-width:920px){.nav__pill{display:flex}}
+
+/* --- герой: сцена с вращающимися деталями вместо видео --------------------- */
+.hero{position:relative;min-height:min(100svh,900px);display:flex;flex-direction:column;overflow:hidden}
+.hero__field{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero__field::before{content:"";position:absolute;left:50%;top:46%;translate:-50% -50%;
+  width:min(1100px,86vw);height:min(720px,64vh);border-radius:50%;filter:blur(80px);
+  background:radial-gradient(circle,rgba(221,203,164,.16),rgba(221,203,164,.04) 55%,transparent 75%)}
+.hero__field .diag{position:absolute;inset:0;opacity:.4;
+  background-image:repeating-linear-gradient(115deg,rgba(196,193,184,.08) 0 1px,transparent 1px 60px)}
+
+.stage{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(560px,68vw);aspect-ratio:1/.92;z-index:1;
+  opacity:.8;animation:stageSway 34s ease-in-out infinite}
+.stage img{position:absolute;inset:0;margin:auto;max-width:82%;max-height:82%;width:auto;height:auto;
+  object-fit:contain;opacity:0;filter:drop-shadow(0 46px 80px rgba(0,0,0,.92));
+  animation:stageCycle 20s infinite}
+.stage img:nth-child(1){animation-delay:0s}
+.stage img:nth-child(2){animation-delay:5s}
+.stage img:nth-child(3){animation-delay:10s}
+.stage img:nth-child(4){animation-delay:15s}
+@keyframes stageCycle{
+  0%{opacity:0;transform:scale(.9) rotate(-3deg)}
+  6%{opacity:1;transform:scale(.94) rotate(-1deg)}
+  25%{opacity:1;transform:scale(1) rotate(0deg)}
+  32%{opacity:0;transform:scale(1.05) rotate(2deg)}
+  100%{opacity:0}
+}
+@keyframes stageSway{0%,100%{translate:-50% -47%;rotate:-1deg}50%{translate:-50% -45%;rotate:1deg}}
+
+.hero__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(58% 46% at 50% 62%,rgba(0,0,0,.62) 0%,rgba(0,0,0,.32) 46%,transparent 74%)}
+
+.hero__in{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;gap:22px;padding:120px var(--gutter) 40px;max-width:1040px;margin-inline:auto}
+.badge{display:inline-flex;align-items:center;gap:0;border-radius:999px;padding:5px}
+.badge__tag{background:var(--sand);color:#000;font-size:11px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 13px;border-radius:999px}
+.badge__txt{font-size:13px;color:rgba(242,239,233,.9);padding:0 16px 0 12px}
+
+.headline{font-family:var(--font-display);font-style:italic;font-weight:400;color:#fff;
+  font-size:clamp(32px,6.2vw,68px);line-height:1.02;letter-spacing:-.005em;
+  display:flex;flex-wrap:wrap;justify-content:center;row-gap:.06em;max-width:19ch}
+.headline span{display:inline-block;margin-right:.26em;filter:blur(10px);opacity:0;transform:translateY(22px);
+  transition:filter .7s cubic-bezier(.2,.7,.2,1),opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.headline.in span{filter:blur(0);opacity:1;transform:translateY(0)}
+
+.sub{max-width:56ch;font-size:clamp(15px,1.2vw,17px);font-weight:300;color:var(--text-2);line-height:1.6}
+.hero__cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:center}
+.btn-glass{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:14px 24px;
+  font-size:14px;font-weight:500;color:#fff}
+.btn-glass svg{transition:transform .25s}
+.btn-glass:hover svg{transform:translate(3px,-3px)}
+.link-plain{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--text-2);
+  transition:color .25s}
+.link-plain:hover{color:var(--sand-hi)}
+
+.stats{display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;justify-content:center}
+.stat{width:190px;border-radius:20px;padding:20px;text-align:left}
+.stat svg{color:#fff;opacity:.9}
+.stat__val{font-family:var(--font-display);font-style:italic;color:#fff;font-size:36px;line-height:1;
+  letter-spacing:-.01em;margin-top:16px;font-variant-numeric:tabular-nums}
+.stat__label{font-size:12px;font-weight:300;color:var(--text-2);margin-top:8px;line-height:1.4}
+
+.partners{display:flex;flex-direction:column;align-items:center;gap:16px;padding-bottom:34px;position:relative;z-index:3}
+.partners__chip{border-radius:999px;padding:8px 16px;font-size:12px;font-weight:500;color:var(--text-2)}
+.partners__row{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 44px}
+.partners__row span{font-family:var(--font-display);font-style:italic;color:#fff;font-size:clamp(17px,2vw,23px);
+  letter-spacing:-.01em}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* --- секция 2: экспертиза --------------------------------------------------- */
+.expertise{position:relative;padding:110px var(--gutter) 70px;display:flex;flex-direction:column;overflow:hidden}
+.expertise__field{position:absolute;inset:0;z-index:0;overflow:hidden}
+.expertise__field::before{content:"";position:absolute;left:14%;top:20%;width:60vw;height:60vw;max-width:800px;
+  max-height:800px;border-radius:50%;background:radial-gradient(circle,rgba(221,203,164,.10),transparent 65%);
+  filter:blur(60px)}
+.expertise__stage{position:absolute;right:-6%;top:8%;width:min(560px,52vw);aspect-ratio:1;z-index:0;opacity:.9}
+.expertise__stage img{position:absolute;inset:0;margin:auto;max-width:78%;max-height:78%;object-fit:contain;
+  opacity:0;filter:drop-shadow(0 40px 70px rgba(0,0,0,.9));animation:stageCycle 22s infinite}
+.expertise__stage img:nth-child(1){animation-delay:2s}
+.expertise__stage img:nth-child(2){animation-delay:9s}
+.expertise__stage img:nth-child(3){animation-delay:16s}
+
+.expertise__head{position:relative;z-index:2;max-width:640px}
+.kicker{font-size:13px;font-weight:500;color:var(--text-2);letter-spacing:.02em;margin-bottom:18px}
+.expertise__title{font-family:var(--font-display);font-style:italic;color:#fff;
+  font-size:clamp(40px,7vw,84px);line-height:.92;letter-spacing:-.01em}
+.expertise__title .l2{display:block;color:var(--sand)}
+
+.cards{position:relative;z-index:2;display:grid;grid-template-columns:1fr;gap:18px;margin-top:64px}
+@media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{border-radius:22px;padding:24px;min-height:320px;display:flex;flex-direction:column}
+.card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.card__icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;flex:none;color:#fff}
+.card__tags{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;max-width:66%}
+.card__tags span{border-radius:999px;padding:5px 11px;font-size:10.5px;color:rgba(242,239,233,.86);white-space:nowrap}
+.card__title{font-family:var(--font-display);font-style:italic;color:#fff;font-size:clamp(24px,2.4vw,30px);
+  letter-spacing:-.005em;margin-top:auto;padding-top:22px}
+.card__body{margin-top:12px;font-size:14px;font-weight:300;color:var(--text-2);line-height:1.55;max-width:34ch}
+
+.foot{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:16px;padding-top:40px;border-top:1px solid rgba(196,193,184,.14);margin-top:40px}
+.foot p{font-size:12px;color:var(--text-3)}
+.foot a{font-size:12px;color:var(--text-2)}
+.foot a:hover{color:var(--sand)}
+
+@media(prefers-reduced-motion:reduce){
+  .stage,.stage img,.expertise__stage img{animation:none;opacity:1}
+  .headline span{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav__mark glass" href="index.html" aria-label="FERES — на главную">
+    <img src="assets/img/brand/mark-fr-sand.png" alt="FERES">
+  </a>
+  <div class="nav__pill glass">
+    <a href="catalog.html">Каталог</a>
+    <a href="where-to-buy.html">Где купить</a>
+    <a href="partners.html">Партнёрам</a>
+    <a href="knowledge.html">База знаний</a>
+    <a href="contacts.html">Контакты</a>
+    <a class="nav__cta" href="partners.html#form">Стать партнёром</a>
+  </div>
+  <span class="nav__spacer" aria-hidden="true"></span>
+</nav>
+
+<!-- ================= СЕКЦИЯ 1 — ГЕРОЙ ================= -->
+<section class="hero">
+  <div class="hero__field"><div class="diag"></div></div>
+
+  <div class="stage" aria-hidden="true">
+    <img src="assets/img/products/clutch.webp" alt="">
+    <img src="assets/img/products/piston-group.webp" alt="">
+    <img src="assets/img/products/cv-joint.webp" alt="">
+    <img src="assets/img/products/brake-disc.webp" alt="">
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="hero__in">
+    <div class="badge glass reveal" style="transition-delay:.15s">
+      <span class="badge__tag">Новинка</span>
+      <span class="badge__txt">Гидрокомпенсаторы и шатун — уже в каталоге</span>
+    </div>
+
+    <h1 class="headline" data-blur>Уверенность после ремонта</h1>
+
+    <p class="sub reveal" style="transition-delay:.4s">Каждая деталь FERES спроектирована так, чтобы ремонт не повторился. Инженерное качество, проверенная применяемость и поддержка на каждом этапе — от завода до вашего гаража.</p>
+
+    <div class="hero__cta reveal" style="transition-delay:.55s">
+      <a class="btn-glass glass-strong" href="catalog.html">Смотреть каталог
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+      </a>
+      <a class="link-plain" href="where-to-buy.html">Где купить
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="stats reveal" style="transition-delay:.7s">
+      <div class="stat glass">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <p class="stat__val">833</p>
+        <p class="stat__label">позиции в каталоге — ассортимент растёт каждый квартал</p>
+      </div>
+      <div class="stat glass">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10.5c0 5.4-8 12-8 12s-8-6.6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10.3" r="2.8"/></svg>
+        <p class="stat__val">20</p>
+        <p class="stat__label">точек продаж в 18 городах России</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="partners">
+    <span class="partners__chip glass">Официальные магазины и партнёры</span>
+    <div class="partners__row">
+      <span>Ozon</span><span>Wildberries</span><span>Яндекс Маркет</span><span>Дилеры</span><span>СТО</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= СЕКЦИЯ 2 — ЭКСПЕРТИЗА ================= -->
+<section class="expertise">
+  <div class="expertise__field"></div>
+  <div class="expertise__stage" aria-hidden="true">
+    <img src="assets/img/products/con-rod.webp" alt="">
+    <img src="assets/img/products/strut-mount.webp" alt="">
+    <img src="assets/img/products/belt.webp" alt="">
+  </div>
+
+  <div class="expertise__head">
+    <p class="kicker">// Экспертиза</p>
+    <h2 class="expertise__title">Инженерия<span class="l2">без компромиссов</span></h2>
+  </div>
+
+  <div class="cards">
+    <article class="card glass reveal">
+      <div class="card__top">
+        <span class="card__icon glass"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg></span>
+        <div class="card__tags">
+          <span class="glass">Инженерное качество</span><span class="glass">Проверенная применяемость</span>
+        </div>
+      </div>
+      <h3 class="card__title">Цилиндропоршневая группа</h3>
+      <p class="card__body">Мы понимаем, что происходит внутри двигателя: детали проектируются под реальные условия ремонта, а не под минимальную себестоимость.</p>
+    </article>
+
+    <article class="card glass reveal" style="transition-delay:.1s">
+      <div class="card__top">
+        <span class="card__icon glass"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4.5 6v6c0 4.4 3.1 8.2 7.5 9 4.4-.8 7.5-4.6 7.5-9V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+        <div class="card__tags">
+          <span class="glass">Контроль на входе и выходе</span><span class="glass">Честная гарантия</span>
+        </div>
+      </div>
+      <h3 class="card__title">Контроль качества</h3>
+      <p class="card__body">Каждая партия проходит проверку перед отгрузкой — это снижает долю возвратов у партнёров и разочарований у автовладельцев.</p>
+    </article>
+
+    <article class="card glass reveal" style="transition-delay:.2s">
+      <div class="card__top">
+        <span class="card__icon glass"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="1" y="7" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span>
+        <div class="card__tags">
+          <span class="glass">Два склада</span><span class="glass">Поддержка партнёров</span>
+        </div>
+      </div>
+      <h3 class="card__title">Логистика и поддержка</h3>
+      <p class="card__body">Отгружаем с ближайшего склада по России и СНГ, а дилеру помогаем материалами для продаж и обучением команды.</p>
+    </article>
+  </div>
+
+  <div class="foot">
+    <p>FERES · Концепт-версия главной страницы · не является финальным макетом</p>
+    <a href="index.html">← Вернуться к текущему сайту</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Заголовок по словам, как в референсе (BlurText), но на чистом JS/CSS
+  document.querySelectorAll('[data-blur]').forEach(function(el){
+    var words = el.textContent.trim().split(/\s+/);
+    el.textContent = '';
+    words.forEach(function(w, i){
+      var span = document.createElement('span');
+      span.textContent = w;
+      span.style.transitionDelay = (i * 0.09) + 's';
+      el.appendChild(span);
+    });
+  });
+
+  var targets = document.querySelectorAll('.reveal, [data-blur]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: .15 });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
